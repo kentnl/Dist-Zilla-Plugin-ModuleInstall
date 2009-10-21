@@ -62,7 +62,7 @@ sub setup_installer {
 #    (my $dir = $file->name) =~ s{/[^/]+\.t\z}{/*.t}g;
 
 #    $test_dirs{ $dir } = 1;
-  }
+#  }
 
   my $content = $self->fill_in_string(
     $template,
