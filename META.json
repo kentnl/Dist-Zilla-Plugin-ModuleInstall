@@ -1,0 +1,37 @@
+{
+   "resources" : {
+      "repository" : "http://github.com/kentfredric/Dist-Zilla-Plugin-ModuleInstall"
+   },
+   "meta-spec" : {
+      "version" : 1.4,
+      "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
+   },
+   "generated_by" : "Dist::Zilla version 1.093140",
+   "version" : "0.01002219",
+   "name" : "Dist-Zilla-Plugin-ModuleInstall",
+   "author" : [
+      "Kent Fredric <kentnl@cpan.org>"
+   ],
+   "license" : "perl",
+   "build_requires" : {
+      "ExtUtils::MakeMaker" : 6.42
+   },
+   "provides" : {
+      "Dist::Zilla::Plugin::ModuleInstall" : {
+         "version" : "0.01002219",
+         "file" : "lib/Dist/Zilla/Plugin/ModuleInstall.pm"
+      }
+   },
+   "requires" : {
+      "Dist::Zilla::Role::Tempdir" : "0.01000003",
+      "Dist::Zilla" : "1.093140",
+      "Module::Install" : "0.90",
+      "Moose::Autobox" : "0.10",
+      "Moose" : "0.92"
+   },
+   "abstract" : "Build Module::Install based Distributions with Dist::Zilla",
+   "configure_requires" : {
+      "ExtUtils::MakeMaker" : 6.42
+   }
+}
+

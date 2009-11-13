@@ -1,0 +1,28 @@
+NAME
+    Dist::Zilla::Plugin::ModuleInstall - Build Module::Install based
+    Distributions with Dist::Zilla
+
+VERSION
+    version 0.01002219
+
+SYNOPSIS
+    dist.ini
+
+      [ModuleInstall]
+      [MakeMaker::Tests] # use the testing part of eumm.
+
+DESCRIPTION
+    This module will create a Makefile.PL for installing the dist using
+    Module::Install.
+
+    It is at present a very minimal feature set, but it works.
+
+AUTHOR
+      Kent Fredric <kentnl@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2009 by Kent Fredric.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
