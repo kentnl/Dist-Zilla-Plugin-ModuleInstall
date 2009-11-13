@@ -20,6 +20,16 @@ This module will create a F<Makefile.PL> for installing the dist using L<Module:
 
 =cut
 
+=head1 SYNOPSIS
+
+dist.ini
+
+  [ModuleInstall]
+  [MakeMaker::Tests] # use the testing part of eumm.
+
+
+
+=cut
 use namespace::autoclean;
 
 my $template = q|
