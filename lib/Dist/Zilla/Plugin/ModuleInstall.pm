@@ -11,12 +11,15 @@ use Moose::Autobox;
 with 'Dist::Zilla::Role::InstallTool';
 with 'Dist::Zilla::Role::TextTemplate';
 with 'Dist::Zilla::Role::Tempdir';
+with 'Dist::Zilla::Role::MetaProvider';
 
 use Dist::Zilla::File::InMemory;
 
 =head1 DESCRIPTION
 
-This module will create a F<Makefile.PL> for installing the dist using L<Module::Install>
+This module will create a F<Makefile.PL> for installing the dist using L<Module::Install>.
+
+It is at present a very minimal feature set, but it works.
 
 =cut
 
@@ -30,14 +33,17 @@ dist.ini
 
 
 =cut
+
 use namespace::autoclean;
+
+require inc::Module::Install;
 
 my $template = q|
 
 use strict;
 use warnings;
 
-use inc::Module::Install;
+use inc::Module::Install {{ $miver }};
 
 name    '{{ $module_name }}' ;
 abstract "{{ quotemeta( $dist->abstract ) }}" ;
@@ -55,6 +61,13 @@ license  '{{ $dist->license->meta_yml_name }}';
 WriteAll();
 
 |;
+
+sub metadata {
+  return {
+    configure_requires => { 'ExtUtils::MakeMaker' => 6.42 },
+    build_requires     => { 'ExtUtils::MakeMaker' => 6.42 }
+  };
+}
 
 sub setup_installer {
   my ( $self, $arg ) = @_;
@@ -79,6 +92,7 @@ sub setup_installer {
     {
       module_name => $name,
       dist        => \$self->zilla,
+      miver       => "$Module::Install::VERSION",
 
       #     exe_files   => \$exe_files,
       #author_str  => \quotemeta( $self->zilla->authors->join(q{, }) ),
