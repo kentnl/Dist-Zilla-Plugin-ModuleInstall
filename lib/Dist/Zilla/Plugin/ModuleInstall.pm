@@ -11,7 +11,7 @@ use Moose::Autobox;
 with 'Dist::Zilla::Role::InstallTool';
 with 'Dist::Zilla::Role::TextTemplate';
 with 'Dist::Zilla::Role::Tempdir';
-with 'Dist::Zilla::Role::MetaProvider';
+with 'Dist::Zilla::Role::PrereqSource';
 with 'Dist::Zilla::Role::TestRunner';
 
 use Dist::Zilla::File::InMemory;
@@ -63,11 +63,10 @@ WriteAll();
 
 |;
 
-sub metadata {
-  return {
-    configure_requires => { 'ExtUtils::MakeMaker' => 6.42 },
-    build_requires     => { 'ExtUtils::MakeMaker' => 6.42 }
-  };
+sub register_prereqs {
+  my ($self) = @_;
+  $self->zilla->register_prereqs( { phase => 'configure' }, 'ExtUtils::MakeMaker' => 6.42 );
+  $self->zilla->register_prereqs( { phase => 'build' },     'ExtUtils::MakeMaker' => 6.42 );
 }
 
 sub setup_installer {
@@ -129,15 +128,21 @@ sub setup_installer {
   return;
 }
 
-sub test {
-    my ( $self, $target ) = @_;
-
-    $self->build;
-    system('make test') and die "error running make test\n";
-    return;
-
+sub build {
+  my ($self) = shift;
+  system( $^X => 'Makefile.PL' ) and die "error running Makefile.PL\n";
+  system('make') and die "error running make\n";
+  return;
 }
 
+sub test {
+  my ( $self, $target ) = @_;
+
+  $self->build;
+  system('make test') and die "error running make test\n";
+  return;
+
+}
 
 1;
 
