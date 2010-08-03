@@ -12,6 +12,7 @@ with 'Dist::Zilla::Role::InstallTool';
 with 'Dist::Zilla::Role::TextTemplate';
 with 'Dist::Zilla::Role::Tempdir';
 with 'Dist::Zilla::Role::MetaProvider';
+with 'Dist::Zilla::Role::TestRunner';
 
 use Dist::Zilla::File::InMemory;
 
@@ -127,6 +128,16 @@ sub setup_installer {
   }
   return;
 }
+
+sub test {
+    my ( $self, $target ) = @_;
+
+    $self->build;
+    system('make test') and die "error running make test\n";
+    return;
+
+}
+
 
 1;
 
