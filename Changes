@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.01029216 2010-08-04 23:37:06 Pacific/Auckland
         Upgraded codebase to work with DZil 4. 
         New support for build/test/config/recommends phases.
         Now dies and leaves you in the tempdir if it manages to generate 
