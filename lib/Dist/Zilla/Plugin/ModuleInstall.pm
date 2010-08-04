@@ -46,8 +46,8 @@ sub _doc_template {
       . __PACKAGE__
       . q{ Version }
       . ( __PACKAGE__->VERSION() || 'undefined ( self-build? )' ),
-    q{# As part of Dist::Zilla's build generation. },
-    q{# Do not modify this file, instead, modify the dist.ini that configures its generation. },
+    q{# As part of Dist::Zilla's build generation.},
+    q{# Do not modify this file, instead, modify the dist.ini that configures its generation.},
     q|use inc::Module::Install {{ $miver }};|,
     q|{{ $headings }}|,
     q|{{ $requires }}|,
