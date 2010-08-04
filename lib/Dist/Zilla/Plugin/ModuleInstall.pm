@@ -125,12 +125,24 @@ sub _generate_makefile_pl {
   );
   return $content;
 }
+=method register_prereqs
+
+Tells Dist::Zilla about our needs to have EU::MM larger than 6.42
+
+=cut
 
 sub register_prereqs {
   my ($self) = @_;
   $self->zilla->register_prereqs( { phase => 'configure' }, 'ExtUtils::MakeMaker' => 6.42 );
   $self->zilla->register_prereqs( { phase => 'build' },     'ExtUtils::MakeMaker' => 6.42 );
 }
+
+=method setup_installer
+
+Generates the Makefile.PL, and runs it in a tmpdir, and then harvests the output and stores
+it in the dist selectively.
+
+=cut
 
 sub setup_installer {
   my ( $self, $arg ) = @_;
@@ -163,12 +175,24 @@ sub setup_installer {
   return;
 }
 
+=method build
+
+Called by Dist::Zilla to build a built dist. ( ie: perl ./Makefile.PL )
+
+=cut
+
 sub build {
   my ($self) = shift;
   system( $^X => 'Makefile.PL' ) and die "error running Makefile.PL\n";
   system('make') and die "error running make\n";
   return;
 }
+
+=method test
+
+Called by Dist::Zilla to run a dists tests. ( ie: make test )
+
+=cut
 
 sub test {
   my ( $self, $target ) = @_;
