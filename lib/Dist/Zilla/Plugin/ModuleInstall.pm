@@ -110,7 +110,7 @@ sub _generate_makefile_pl {
   $doreq->( [qw(runtime   recommends)], 'recommends' );
   $doreq->( [qw(test      requires)],   'test_requires' );
 
-  push @feet, qq{\n# :ExecFiles };
+  push @feet, qq{\n# :ExecFiles};
   for my $execfile ( $self->zilla->find_files(':ExecFiles')->map( sub { $_->name } )->flatten ) {
     push @feet, _label_string_template( $self, $execfile );
   }
