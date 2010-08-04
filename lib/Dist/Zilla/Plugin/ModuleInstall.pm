@@ -28,10 +28,7 @@ It is at present a very minimal feature set, but it works.
 
 dist.ini
 
-  [ModuleInstall]
-  [MakeMaker::Tests] # use the testing part of eumm.
-
-
+    [ModuleInstall]
 
 =cut
 
@@ -129,8 +126,6 @@ sub _generate_makefile_pl {
   return $content;
 }
 
-my $prereq_template = q|{{$type}} "{{ quotemeta( $prereq_name ) }}" => "{{ quotemeta( $prereq_version ) }}";|;
-
 sub register_prereqs {
   my ($self) = @_;
   $self->zilla->register_prereqs( { phase => 'configure' }, 'ExtUtils::MakeMaker' => 6.42 );
@@ -154,15 +149,15 @@ sub setup_installer {
     }
   );
   for (@generated) {
-    if ( $_->{status} eq 'N' ) {
-      $self->log( 'ModuleInstall created: ' . $_->{name} );
-      if ( $_->{name} =~ /^inc\/Module\/Install/ ) {
-        $self->log( 'ModuleInstall added  : ' . $_->{name} );
-        $self->add_file( $_->{file} );
+    if ( $_->is_new ) {
+      $self->log( 'ModuleInstall created: ' . $_->name );
+      if ( $_->name =~ /^inc\/Module\/Install/ ) {
+        $self->log( 'ModuleInstall added  : ' . $_->name );
+        $self->add_file( $_->file );
       }
     }
-    if ( $_->{status} eq 'M' ) {
-      $self->log( 'ModuleInstall modified: ' . $_->{name} );
+    if ( $_->is_modified ) {
+      $self->log( 'ModuleInstall modified: ' . $_->name );
     }
   }
   return;
