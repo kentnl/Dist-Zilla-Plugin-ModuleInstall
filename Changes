@@ -1,5 +1,22 @@
 Revision history for Dist-Zilla-Plugin-ModuleInstall
 
+0.01029216 2010-08-04 23:37:06 Pacific/Auckland
+        Upgraded codebase to work with DZil 4. 
+        New support for build/test/config/recommends phases.
+        Now dies and leaves you in the tempdir if it manages to generate 
+          a fubared Makefile.PL
+        Now using Latest Role::Tempdir
+        General overhaul of everything.
+        This release hopefully resolves rt #55840 ( reported by Salve J. Nilsen )
+        This now ships its own default test-runner. 
+        Attempted support at supporting scripts via :ExecFiles
+        More errors moved to occur in the dzil phase, not in the templater 
+          ( which suppresses sneaky errors that I had happening because the code
+            in the templates were dying, and emitting "hurp, something failed" into the
+            template, which, being perl code, wasn't too great )
+        Emitted Makefile.PL has more comments explaining whats happening.
+        Injects a "Hey, don't modify this file!" warning. 
+
 0.01002219 2009-11-13 14:03:57 UTC
           First version.
 
