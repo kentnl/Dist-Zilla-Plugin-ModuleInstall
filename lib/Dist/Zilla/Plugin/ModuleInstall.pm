@@ -47,21 +47,16 @@ use warnings;
 use inc::Module::Install {{ $miver }};
 
 name    '{{ $module_name }}' ;
-abstract "{{ quotemeta( $dist->abstract ) }}" ;
-author   "{{ quotemeta( $dist->authors->[0] ) }}";
-version  "{{ quotemeta( $dist->version  ) }}";
-license  '{{ $dist->license->meta_yml_name }}';
-{{
-  my $prereq = $dist->prereq;
-  $OUT .= qq{requires   "} . quotemeta( $_ ) . qq{" => "} . quotemeta( $prereq->{$_} ) . qq{";\n}
-    for keys %$prereq;
-  chomp $OUT;
-  return '';
-}}
-
+abstract "{{ quotemeta( $abstract ) }}" ;
+author   "{{ quotemeta( $author ) }}";
+version  "{{ quotemeta( $version  ) }}";
+license  '{{ $license }}';
+{{ $requires }}
 WriteAll();
 
 |;
+
+my $prereq_template = q|{{$type}} "{{ quotemeta( $prereq_name ) }}" => "{{ quotemeta( $prereq_version ) }}";|;
 
 sub register_prereqs {
   my ($self) = @_;
@@ -86,13 +81,59 @@ sub setup_installer {
 
   #    $test_dirs{ $dir } = 1;
   #  }
+  my $prereqs = $self->zilla->prereqs;
+  my %prereqs = (
+    configure_requires => $prereqs->requirements_for(qw(configure requires))->as_string_hash,
+    build_requires     => $prereqs->requirements_for(qw(build     requires))->as_string_hash,
+    requires           => $prereqs->requirements_for(qw(runtime   requires))->as_string_hash,
+    recommends         => $prereqs->requirements_for(qw(runtime   recommends))->as_string_hash,
+    test_requires      => $prereqs->requirements_for(qw(test   requires))->as_string_hash,
 
-  my $content = $self->fill_in_string(
+  );
+ use Data::Dump qw( dump );
+ my @requires;
+
+ my $doperl = sub {
+     my ( $package, $version ) = @_;
+     if( $package eq 'perl' ){
+        push @requires, $self->fill_in_string(q|perl_version "{{ quotemeta( $version ) }}";|, {
+            version => $version,
+        });
+        return 1;
+     }
+     return 0;
+ };
+ my $doit = sub {
+    my ( $sourcekey , $targetkey, $hash ) = @_;
+    for ( sort keys %{ $hash->{$sourcekey} } ){
+    next if $doperl->( $_, $hash->{$sourcekey}->{$_} );
+    push @requires, $self->fill_in_string( $prereq_template, {
+        type => $targetkey,
+        prereq_name => $_ ,
+        prereq_version => $hash->{$sourcekey}->{$_}
+    });
+  }
+ };
+
+ $doit->( configure_requires => 'configure_requires', \%prereqs );
+ $doit->( build_requires => 'configure_requires', \%prereqs );
+ $doit->( requires => 'requires', \%prereqs );
+ $doit->( requires => 'requires', \%prereqs );
+ $doit->( recommends => 'recommends', \%prereqs );
+ $doit->( test_requires => 'test_requires', \%prereqs );
+
+
+ my $content = $self->fill_in_string(
     $template,
     {
       module_name => $name,
+      abstract    => $self->zilla->abstract,
+      author      => $self->zilla->authors->[0],
+      version     => $self->zilla->version,
+      license     => $self->zilla->license->meta_yml_name,
       dist        => \$self->zilla,
       miver       => "$Module::Install::VERSION",
+      requires    => join(qq{\n}, @requires ),
 
       #     exe_files   => \$exe_files,
       #author_str  => \quotemeta( $self->zilla->authors->join(q{, }) ),
@@ -110,7 +151,12 @@ sub setup_installer {
   $self->add_file($file);
   my (@generated) = $self->capture_tempdir(
     sub {
-      system( $^X, 'Makefile.PL' );
+      system( $^X, 'Makefile.PL' ) and do {
+        warn "Error running Makefile.PL, freezing in tempdir so you can diagnose it\n";
+        warn "Will die() when you 'exit' ( and thus, erase the tempdir )";
+        system("bash") and die "Can't call bash :(";
+        die "Finished with tempdir diagnosis, killing dzil";
+      };
     }
   );
   for (@generated) {
