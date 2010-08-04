@@ -86,7 +86,7 @@ sub _generate_makefile_pl {
 
   my $doreq = sub {
     my ( $key, $target ) = @_;
-    push @requires, qq{\n# @$key => $target };
+    push @requires, qq{\n# @$key => $target};
     my $hash = $prereqs->requirements_for(@$key)->as_string_hash;
     for ( sort keys %{$hash} ) {
       if ( $_ eq 'perl' ) {
@@ -125,6 +125,7 @@ sub _generate_makefile_pl {
   );
   return $content;
 }
+
 =method register_prereqs
 
 Tells Dist::Zilla about our needs to have EU::MM larger than 6.42
