@@ -5,6 +5,7 @@ Revision history for {{$dist->name}}
  - No longer indexes ^inc:: things. ( rt#61170 )
  - Move to @Author::KENTNL
  - use Bootstrap::lib
+ - Changes to CPAN::Changes style.
 
  [Tests]
  - Remove hand-spun critic-tests.
