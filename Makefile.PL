@@ -7,7 +7,7 @@ use inc::Module::Install 1.00;
 name 'Dist-Zilla-Plugin-ModuleInstall';
 abstract "Build\ Module\:\:Install\ based\ Distributions\ with\ Dist\:\:Zilla";
 author "Kent\ Fredric\ \<kentnl\@cpan\.org\>";
-version "0\.01029216";
+version "0\.01054020";
 license "perl";
 
 # configure requires => configure_requires
@@ -26,12 +26,12 @@ requires  "Dist\:\:Zilla\:\:Role\:\:TextTemplate" => "0";
 requires  "Module\:\:Install" => "0\.90";
 requires  "Moose" => "0\.92";
 requires  "Moose\:\:Autobox" => "0\.10";
-requires  "inc\:\:Module\:\:Install" => "0";
 requires  "namespace\:\:autoclean" => "0";
 
 # runtime recommends => recommends
 
 # test requires => test_requires
+test_requires  "English" => "0";
 test_requires  "File\:\:Find" => "0";
 test_requires  "File\:\:Temp" => "0";
 test_requires  "Test\:\:More" => "0\.88";

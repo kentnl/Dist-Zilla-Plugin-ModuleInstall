@@ -45,15 +45,18 @@ sub pmver {
     }
 
     # So, we should be good, right?
-    return sprintf('%-40s => %-10s%-15s%s', $module, $pmver, $wanted, "\n");
+    return sprintf('%-45s => %-10s%-15s%s', $module, $pmver, $wanted, "\n");
 }
 
 eval { $v .= pmver('Dist::Zilla::File::InMemory','any version') };
+eval { $v .= pmver('Dist::Zilla::PluginBundle::Author::KENTNL','1.0.0') };
+eval { $v .= pmver('Dist::Zilla::PluginBundle::Author::KENTNL::Lite','0.01009803') };
 eval { $v .= pmver('Dist::Zilla::Role::InstallTool','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::PrereqSource','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::Tempdir','0.01027622') };
 eval { $v .= pmver('Dist::Zilla::Role::TestRunner','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::TextTemplate','any version') };
+eval { $v .= pmver('English','any version') };
 eval { $v .= pmver('ExtUtils::MakeMaker','6.42') };
 eval { $v .= pmver('File::Find','any version') };
 eval { $v .= pmver('File::Temp','any version') };
@@ -61,7 +64,6 @@ eval { $v .= pmver('Module::Install','0.90') };
 eval { $v .= pmver('Moose','0.92') };
 eval { $v .= pmver('Moose::Autobox','0.10') };
 eval { $v .= pmver('Test::More','0.88') };
-eval { $v .= pmver('inc::Module::Install','any version') };
 eval { $v .= pmver('namespace::autoclean','any version') };
 
 
