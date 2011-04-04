@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.01054020 2011-04-04T15:36:00Z
  [BugFix]
  - rt#61170 "wrong inc::module::install prereq" should be fixed in this
    release.
