@@ -1,6 +1,13 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [Packaging]
+ - No longer indexes ^inc:: things.
+ - Move to @Author::KENTNL
+ - use Bootstrap::lib
+
+ [Tests]
+ - Remove hand-spun critic-tests.
 
 0.01029216 2010-08-04 23:37:06 Pacific/Auckland
         Upgraded codebase to work with DZil 4. 
