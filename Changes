@@ -1,14 +1,32 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [BugFix]
+ - rt#61170 "wrong inc::module::install prereq" should be fixed in this release.
+
  [Packaging]
  - No longer indexes ^inc:: things. ( rt#61170 )
  - Move to @Author::KENTNL
  - use Bootstrap::lib
  - Changes to CPAN::Changes style.
+ - no longer ship inc/
+ - Ship .perltidyrc and perlcritic.rc
 
  [Tests]
  - Remove hand-spun critic-tests.
+ - Drop portability tests.
+ - Add CPAN::Changes tests.
+
+ [Dependencies]
+ - No longer (falsely) deps inc::Module::Install ( rt#61170 )
+
+ [Dependencies::Test]
+ - Depends English.pm
+
+ [Dependencies::Devel]
+ - Recommneds/suggests/etc on @Author::KENTNL bundles.
+
+
 
 0.01029216 2010-08-04T11:37:06Z
  - Upgraded codebase to work with DZil 4.
