@@ -3,16 +3,17 @@ Revision history for {{$dist->name}}
 {{$NEXT}}
  - Maintenance release
 
+ [Dependencies::Changed]
+ - develop suggests : Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0 ->
+   v1.2.0
+
  [Dependencies::New]
  - runtime requires : perl 5.006
  - runtime requires : strict
  - runtime requires : warnings
 
- [Dependencies::Changed]
- - develop suggests : Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0 -> v1.2.0
-
  [Dependencies::Removed]
- - test requries : English
+ - test requires : English
 
  [Packaging]
  - Update LICENSE ( Indent, Date, Address )
