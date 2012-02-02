@@ -1,5 +1,28 @@
 Revision history for Dist-Zilla-Plugin-ModuleInstall
 
+0.01054021 2012-02-02T19:30:41Z
+ - Maintenance release
+
+ [Dependencies::Changed]
+ - develop suggests : Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0 ->
+   v1.2.0
+
+ [Dependencies::New]
+ - runtime requires : perl 5.006
+ - runtime requires : strict
+ - runtime requires : warnings
+
+ [Dependencies::Removed]
+ - test requires : English
+
+ [Packaging]
+ - Update LICENSE ( Indent, Date, Address )
+ - Move extra-tests to xt/
+ - Git urls moved to https://
+ - x_authority declared in meta.
+ - Update to M::I 1.04
+ - Move to git based versioning.
+
 0.01054020 2011-04-04T15:36:00Z
  [BugFix]
  - rt#61170 "wrong inc::module::install prereq" should be fixed in this

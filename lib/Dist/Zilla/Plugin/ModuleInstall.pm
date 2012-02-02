@@ -3,7 +3,10 @@ use warnings;
 
 package Dist::Zilla::Plugin::ModuleInstall;
 BEGIN {
-  $Dist::Zilla::Plugin::ModuleInstall::VERSION = '0.01054020';
+  $Dist::Zilla::Plugin::ModuleInstall::AUTHORITY = 'cpan:KENTNL';
+}
+{
+  $Dist::Zilla::Plugin::ModuleInstall::VERSION = '0.01054021';
 }
 
 # ABSTRACT: Build Module::Install based Distributions with Dist::Zilla
@@ -184,7 +187,7 @@ Dist::Zilla::Plugin::ModuleInstall - Build Module::Install based Distributions w
 
 =head1 VERSION
 
-version 0.01054020
+version 0.01054021
 
 =head1 SYNOPSIS
 
@@ -223,7 +226,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Kent Fredric.
+This software is copyright (c) 2012 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

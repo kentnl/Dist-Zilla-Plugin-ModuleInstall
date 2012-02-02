@@ -12,7 +12,7 @@ my $v = "\n";
 
 eval {                     # no excuses!
     # report our Perl details
-    my $want = "any version";
+    my $want = '5.006';
     my $pv = ($^V || $]);
     $v .= "perl: $pv (wanted $want) on $^O from $^X\n\n";
 };
@@ -49,14 +49,13 @@ sub pmver {
 }
 
 eval { $v .= pmver('Dist::Zilla::File::InMemory','any version') };
-eval { $v .= pmver('Dist::Zilla::PluginBundle::Author::KENTNL','1.0.0') };
+eval { $v .= pmver('Dist::Zilla::PluginBundle::Author::KENTNL','1.2.0') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::Author::KENTNL::Lite','0.01009803') };
 eval { $v .= pmver('Dist::Zilla::Role::InstallTool','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::PrereqSource','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::Tempdir','0.01027622') };
 eval { $v .= pmver('Dist::Zilla::Role::TestRunner','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::TextTemplate','any version') };
-eval { $v .= pmver('English','any version') };
 eval { $v .= pmver('ExtUtils::MakeMaker','6.42') };
 eval { $v .= pmver('File::Find','any version') };
 eval { $v .= pmver('File::Temp','any version') };
@@ -65,6 +64,8 @@ eval { $v .= pmver('Moose','0.92') };
 eval { $v .= pmver('Moose::Autobox','0.10') };
 eval { $v .= pmver('Test::More','0.88') };
 eval { $v .= pmver('namespace::autoclean','any version') };
+eval { $v .= pmver('strict','any version') };
+eval { $v .= pmver('warnings','any version') };
 
 
 
