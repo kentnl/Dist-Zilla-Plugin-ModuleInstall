@@ -13,6 +13,13 @@ BEGIN {
 
 use Moose;
 use Moose::Autobox;
+use Config;
+
+has 'make_path' => (
+  isa => 'Str',
+  is  => 'ro',
+  default => $Config{make} || 'make',
+);
 
 has '_runner' => (
   is   => 'ro',
