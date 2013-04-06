@@ -3,7 +3,7 @@ NAME
     Distributions with Dist::Zilla
 
 VERSION
-    version 0.01054021
+    version 0.02000000
 
 SYNOPSIS
     dist.ini
@@ -24,17 +24,11 @@ METHODS
     Generates the Makefile.PL, and runs it in a tmpdir, and then harvests
     the output and stores it in the dist selectively.
 
-  build
-    Called by Dist::Zilla to build a built dist. ( ie: perl ./Makefile.PL )
-
-  test
-    Called by Dist::Zilla to run a dists tests. ( ie: make test )
-
 AUTHOR
     Kent Fredric <kentnl@cpan.org>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2012 by Kent Fredric.
+    This software is copyright (c) 2013 by Kent Fredric.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.

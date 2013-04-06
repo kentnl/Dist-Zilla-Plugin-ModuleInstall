@@ -6,14 +6,39 @@ BEGIN {
   $Dist::Zilla::Plugin::ModuleInstall::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Dist::Zilla::Plugin::ModuleInstall::VERSION = '0.01054021';
+  $Dist::Zilla::Plugin::ModuleInstall::VERSION = '0.02000000';
 }
 
 # ABSTRACT: Build Module::Install based Distributions with Dist::Zilla
 
 use Moose;
 use Moose::Autobox;
+use Config;
+use Dist::Zilla::Plugin::MakeMaker::Runner;
 
+has 'make_path' => (
+  isa     => 'Str',
+  is      => 'ro',
+  default => $Config{make} || 'make',
+);
+
+has '_runner' => (
+  is      => 'ro',
+  lazy    => 1,
+  handles => [qw(build test)],
+  default => sub {
+    my ($self) = @_;
+    Dist::Zilla::Plugin::MakeMaker::Runner->new(
+      {
+        zilla       => $self->zilla,
+        plugin_name => $self->plugin_name . '::Runner',
+        make_path   => $self->make_path,
+      }
+    );
+  },
+);
+
+with 'Dist::Zilla::Role::BuildRunner';
 with 'Dist::Zilla::Role::InstallTool';
 with 'Dist::Zilla::Role::TextTemplate';
 with 'Dist::Zilla::Role::Tempdir';
@@ -157,28 +182,10 @@ sub setup_installer {
   return;
 }
 
-
-sub build {
-  my ($self) = shift;
-  system( $^X => 'Makefile.PL' ) and die "error running Makefile.PL\n";
-  system('make') and die "error running make\n";
-  return;
-}
-
-
-sub test {
-  my ( $self, $target ) = @_;
-
-  $self->build;
-  system('make test') and die "error running make test\n";
-  return;
-
-}
-
 1;
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -187,7 +194,7 @@ Dist::Zilla::Plugin::ModuleInstall - Build Module::Install based Distributions w
 
 =head1 VERSION
 
-version 0.01054021
+version 0.02000000
 
 =head1 SYNOPSIS
 
@@ -212,24 +219,15 @@ Tells Dist::Zilla about our needs to have EU::MM larger than 6.42
 Generates the Makefile.PL, and runs it in a tmpdir, and then harvests the output and stores
 it in the dist selectively.
 
-=head2 build
-
-Called by Dist::Zilla to build a built dist. ( ie: perl ./Makefile.PL )
-
-=head2 test
-
-Called by Dist::Zilla to run a dists tests. ( ie: make test )
-
 =head1 AUTHOR
 
 Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Kent Fredric.
+This software is copyright (c) 2013 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

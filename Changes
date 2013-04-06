@@ -1,11 +1,47 @@
-Revision history for Dist-Zilla-Plugin-ModuleInstall
+﻿Revision history for Dist-Zilla-Plugin-ModuleInstall
+
+0.02000000 2013-04-06T06:45:47Z
+ - Maintenance/Bugfix release
+
+ [!Noteworthy Changes]
+ - Properly supports BuildRunner role now so works again with dzil xtest
+
+ [Dependencies::Added / develop requires]
+ - Pod::Coverage::TrustPod
+ - Test::CPAN::Meta
+ - Test::Pod 1.41
+ - Test::Pod::Coverage 1.08
+ - version 0.9901
+
+ [Dependencies::Changed / develop recommends]
+ - Dist::Zilla::PluginBundle::Author::KENTNL::Lite 0.01009803 → v1.3.0
+
+ [Dependencies::Changed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL v1.2.0 → v1.7.2
+
+ [Dependencies::Changed / test requires]
+ - Test::More 0.96 → 0.98
+
+ [Documentation]
+ - Update copyright year
+ - add README.mkdn
+
+ [Internals]
+ - defer build/test to MakeMaker::Runner, copying implementation details
+   from MakeMaker
+
+ [Meta]
+ - Bug tracker to github
+
+ [Packaging]
+ - Rebuilt with Module::Install 1.06
 
 0.01054021 2012-02-02T19:30:41Z
  - Maintenance release
 
  [Dependencies::Changed]
- - develop suggests : Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0 ->
-   v1.2.0
+ - develop suggests : Dist::Zilla::PluginBundle::Author::KENTNL
+   v1.0.0 → v1.2.0
 
  [Dependencies::New]
  - runtime requires : perl 5.006
