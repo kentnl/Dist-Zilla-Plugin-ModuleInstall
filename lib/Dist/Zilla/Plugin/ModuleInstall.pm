@@ -7,7 +7,32 @@ package Dist::Zilla::Plugin::ModuleInstall;
 
 use Moose;
 use Moose::Autobox;
+use Config;
+use Dist::Zilla::Plugin::MakeMaker::Runner;
 
+has 'make_path' => (
+  isa     => 'Str',
+  is      => 'ro',
+  default => $Config{make} || 'make',
+);
+
+has '_runner' => (
+  is      => 'ro',
+  lazy    => 1,
+  handles => [qw(build test)],
+  default => sub {
+    my ($self) = @_;
+    Dist::Zilla::Plugin::MakeMaker::Runner->new(
+      {
+        zilla       => $self->zilla,
+        plugin_name => $self->plugin_name . '::Runner',
+        make_path   => $self->make_path,
+      }
+    );
+  },
+);
+
+with 'Dist::Zilla::Role::BuildRunner';
 with 'Dist::Zilla::Role::InstallTool';
 with 'Dist::Zilla::Role::TextTemplate';
 with 'Dist::Zilla::Role::Tempdir';
@@ -174,34 +199,6 @@ sub setup_installer {
     }
   }
   return;
-}
-
-=method build
-
-Called by Dist::Zilla to build a built dist. ( ie: perl ./Makefile.PL )
-
-=cut
-
-sub build {
-  my ($self) = shift;
-  system( $^X => 'Makefile.PL' ) and die "error running Makefile.PL\n";
-  system('make') and die "error running make\n";
-  return;
-}
-
-=method test
-
-Called by Dist::Zilla to run a dists tests. ( ie: make test )
-
-=cut
-
-sub test {
-  my ( $self, $target ) = @_;
-
-  $self->build;
-  system('make test') and die "error running make test\n";
-  return;
-
 }
 
 1;
