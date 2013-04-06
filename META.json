@@ -400,7 +400,7 @@
          {
             "class" : "Dist::Zilla::Plugin::ModuleInstall",
             "name" : "ModuleInstall",
-            "version" : null
+            "version" : "0.01054021"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs",
