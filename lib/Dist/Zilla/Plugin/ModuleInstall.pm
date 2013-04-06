@@ -14,6 +14,21 @@ BEGIN {
 use Moose;
 use Moose::Autobox;
 
+has '_runner' => (
+  is   => 'ro',
+  lazy => 1,
+  handles => [qw(build test)],
+  default => sub {
+    my ($self) = @_;
+    Dist::Zilla::Plugin::MakeMaker::Runner->new({
+      zilla       => $self->zilla,
+      plugin_name => $self->plugin_name . '::Runner',
+      make_path   => $self->make_path,
+    });
+  },
+);
+
+with 'Dist::Zilla::Role::BuildRunner';
 with 'Dist::Zilla::Role::InstallTool';
 with 'Dist::Zilla::Role::TextTemplate';
 with 'Dist::Zilla::Role::Tempdir';
@@ -158,23 +173,6 @@ sub setup_installer {
 }
 
 
-sub build {
-  my ($self) = shift;
-  system( $^X => 'Makefile.PL' ) and die "error running Makefile.PL\n";
-  system('make') and die "error running make\n";
-  return;
-}
-
-
-sub test {
-  my ( $self, $target ) = @_;
-
-  $self->build;
-  system('make test') and die "error running make test\n";
-  return;
-
-}
-
 1;
 
 __END__
@@ -211,14 +209,6 @@ Tells Dist::Zilla about our needs to have EU::MM larger than 6.42
 
 Generates the Makefile.PL, and runs it in a tmpdir, and then harvests the output and stores
 it in the dist selectively.
-
-=head2 build
-
-Called by Dist::Zilla to build a built dist. ( ie: perl ./Makefile.PL )
-
-=head2 test
-
-Called by Dist::Zilla to run a dists tests. ( ie: make test )
 
 =head1 AUTHOR
 

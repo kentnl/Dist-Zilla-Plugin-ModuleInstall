@@ -51,6 +51,7 @@ sub pmver {
 eval { $v .= pmver('Dist::Zilla::File::InMemory','any version') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::Author::KENTNL','v1.7.2') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::Author::KENTNL::Lite','v1.3.0') };
+eval { $v .= pmver('Dist::Zilla::Role::BuildRunner','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::InstallTool','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::PrereqSource','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::Tempdir','0.01027622') };

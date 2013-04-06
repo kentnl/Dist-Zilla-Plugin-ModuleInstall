@@ -24,12 +24,6 @@ METHODS
     Generates the Makefile.PL, and runs it in a tmpdir, and then harvests
     the output and stores it in the dist selectively.
 
-  build
-    Called by Dist::Zilla to build a built dist. ( ie: perl ./Makefile.PL )
-
-  test
-    Called by Dist::Zilla to run a dists tests. ( ie: make test )
-
 AUTHOR
     Kent Fredric <kentnl@cpan.org>
 

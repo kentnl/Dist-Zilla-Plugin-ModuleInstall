@@ -43,6 +43,7 @@
       "runtime" : {
          "requires" : {
             "Dist::Zilla::File::InMemory" : "0",
+            "Dist::Zilla::Role::BuildRunner" : "0",
             "Dist::Zilla::Role::InstallTool" : "0",
             "Dist::Zilla::Role::PrereqSource" : "0",
             "Dist::Zilla::Role::Tempdir" : "0.01027622",
@@ -89,6 +90,7 @@
          "Dist::Zilla::File::InMemory" : "4.300033",
          "Dist::Zilla::PluginBundle::Author::KENTNL" : "1.7.2",
          "Dist::Zilla::PluginBundle::Author::KENTNL::Lite" : "NA(possibly not installed)",
+         "Dist::Zilla::Role::BuildRunner" : "4.300033",
          "Dist::Zilla::Role::InstallTool" : "4.300033",
          "Dist::Zilla::Role::PrereqSource" : "4.300033",
          "Dist::Zilla::Role::Tempdir" : "0.01053721",
