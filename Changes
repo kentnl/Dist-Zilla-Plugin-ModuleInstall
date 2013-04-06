@@ -1,6 +1,6 @@
 ﻿Revision history for Dist-Zilla-Plugin-ModuleInstall
 
-0.02000001 2013-04-06T06:46:43Z
+0.02000001 2013-04-06T08:41:21Z
 
 0.02000000 2013-04-06T06:45:47Z
  - Maintenance/Bugfix release
@@ -14,6 +14,11 @@
  - Test::Pod 1.41
  - Test::Pod::Coverage 1.08
  - version 0.9901
+
+ [Dependencies::Added / runtime requires]
+ - Config
+ - Dist::Zilla::Role::BuildRunner
+ - Dist::Zilla::Plugin::MakeMaker::Runner
 
  [Dependencies::Changed / develop recommends]
  - Dist::Zilla::PluginBundle::Author::KENTNL::Lite 0.01009803 → v1.3.0
