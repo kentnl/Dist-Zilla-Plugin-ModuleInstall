@@ -6,7 +6,7 @@ BEGIN {
   $Dist::Zilla::Plugin::ModuleInstall::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Dist::Zilla::Plugin::ModuleInstall::VERSION = '0.02000000';
+  $Dist::Zilla::Plugin::ModuleInstall::VERSION = '0.02000001';
 }
 
 # ABSTRACT: Build Module::Install based Distributions with Dist::Zilla
@@ -194,7 +194,7 @@ Dist::Zilla::Plugin::ModuleInstall - Build Module::Install based Distributions w
 
 =head1 VERSION
 
-version 0.02000000
+version 0.02000001
 
 =head1 SYNOPSIS
 
