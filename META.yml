@@ -19,7 +19,7 @@ name: Dist-Zilla-Plugin-ModuleInstall
 provides:
   Dist::Zilla::Plugin::ModuleInstall:
     file: lib/Dist/Zilla/Plugin/ModuleInstall.pm
-    version: 0.01054022
+    version: 0.02000000
 requires:
   Config: 0
   Dist::Zilla::File::InMemory: 0
@@ -41,7 +41,7 @@ resources:
   bugtracker: https://github.com/kentfredric/Dist-Zilla-Plugin-ModuleInstall/issues
   homepage: https://github.com/kentfredric/Dist-Zilla-Plugin-ModuleInstall
   repository: https://github.com/kentfredric/Dist-Zilla-Plugin-ModuleInstall.git
-version: 0.01054022
+version: 0.02000000
 x_BuiltWith:
   modules:
     Config: 5.017011

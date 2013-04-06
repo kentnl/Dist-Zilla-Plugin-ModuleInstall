@@ -7,7 +7,7 @@ use inc::Module::Install 1.06;
 name 'Dist-Zilla-Plugin-ModuleInstall';
 abstract "Build\ Module\:\:Install\ based\ Distributions\ with\ Dist\:\:Zilla";
 author "Kent\ Fredric\ \<kentnl\@cpan\.org\>";
-version "0\.01054022";
+version "0\.02000000";
 license "perl";
 
 # configure requires => configure_requires
