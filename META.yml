@@ -295,7 +295,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::ModuleInstall
       name: ModuleInstall
-      version: 0.01054021
+      version: ~
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
