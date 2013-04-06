@@ -50,6 +50,7 @@ sub pmver {
 
 eval { $v .= pmver('Config','any version') };
 eval { $v .= pmver('Dist::Zilla::File::InMemory','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::MakeMaker::Runner','any version') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::Author::KENTNL','v1.7.2') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::Author::KENTNL::Lite','v1.3.0') };
 eval { $v .= pmver('Dist::Zilla::Role::BuildRunner','any version') };

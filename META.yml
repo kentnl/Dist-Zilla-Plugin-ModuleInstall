@@ -23,6 +23,7 @@ provides:
 requires:
   Config: 0
   Dist::Zilla::File::InMemory: 0
+  Dist::Zilla::Plugin::MakeMaker::Runner: 0
   Dist::Zilla::Role::BuildRunner: 0
   Dist::Zilla::Role::InstallTool: 0
   Dist::Zilla::Role::PrereqSource: 0
@@ -45,6 +46,7 @@ x_BuiltWith:
   modules:
     Config: 5.017011
     Dist::Zilla::File::InMemory: 4.300033
+    Dist::Zilla::Plugin::MakeMaker::Runner: 4.300033
     Dist::Zilla::PluginBundle::Author::KENTNL: 1.7.2
     Dist::Zilla::PluginBundle::Author::KENTNL::Lite: 'NA(possibly not installed)'
     Dist::Zilla::Role::BuildRunner: 4.300033

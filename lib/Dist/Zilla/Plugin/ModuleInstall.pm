@@ -14,6 +14,7 @@ BEGIN {
 use Moose;
 use Moose::Autobox;
 use Config;
+use Dist::Zilla::Plugin::MakeMaker::Runner;
 
 has 'make_path' => (
   isa => 'Str',

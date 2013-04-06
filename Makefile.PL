@@ -19,6 +19,7 @@ requires  "ExtUtils\:\:MakeMaker" => "6\.42";
 # runtime requires => requires
 requires  "Config" => "0";
 requires  "Dist\:\:Zilla\:\:File\:\:InMemory" => "0";
+requires  "Dist\:\:Zilla\:\:Plugin\:\:MakeMaker\:\:Runner" => "0";
 requires  "Dist\:\:Zilla\:\:Role\:\:BuildRunner" => "0";
 requires  "Dist\:\:Zilla\:\:Role\:\:InstallTool" => "0";
 requires  "Dist\:\:Zilla\:\:Role\:\:PrereqSource" => "0";
