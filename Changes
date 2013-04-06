@@ -1,7 +1,10 @@
 ﻿Revision history for Dist-Zilla-Plugin-ModuleInstall
 
-0.01054022 2013-04-06T06:39:22Z
- - Maintenance Release
+0.01054022 2013-04-06T06:45:14Z
+ - Maintenance/Bugfix release
+
+ [!Noteworthy Changes]
+ - Properly supports BuildRunner role now so works again with dzil xtest
 
  [Dependencies::Added / develop requires]
  - Pod::Coverage::TrustPod
@@ -22,6 +25,10 @@
  [Documentation]
  - Update copyright year
  - add README.mkdn
+
+ [Internals]
+ - defer build/test to MakeMaker::Runner, copying implementation details
+   from MakeMaker
 
  [Meta]
  - Bug tracker to github

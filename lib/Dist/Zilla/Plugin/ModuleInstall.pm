@@ -17,22 +17,24 @@ use Config;
 use Dist::Zilla::Plugin::MakeMaker::Runner;
 
 has 'make_path' => (
-  isa => 'Str',
-  is  => 'ro',
+  isa     => 'Str',
+  is      => 'ro',
   default => $Config{make} || 'make',
 );
 
 has '_runner' => (
-  is   => 'ro',
-  lazy => 1,
+  is      => 'ro',
+  lazy    => 1,
   handles => [qw(build test)],
   default => sub {
     my ($self) = @_;
-    Dist::Zilla::Plugin::MakeMaker::Runner->new({
-      zilla       => $self->zilla,
-      plugin_name => $self->plugin_name . '::Runner',
-      make_path   => $self->make_path,
-    });
+    Dist::Zilla::Plugin::MakeMaker::Runner->new(
+      {
+        zilla       => $self->zilla,
+        plugin_name => $self->plugin_name . '::Runner',
+        make_path   => $self->make_path,
+      }
+    );
   },
 );
 
@@ -179,7 +181,6 @@ sub setup_installer {
   }
   return;
 }
-
 
 1;
 
