@@ -17,7 +17,7 @@ inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 lib/Dist/Zilla/Plugin/ModuleInstall.pm
 perlcritic.rc
-t/00-compile.t
+t/00-compile/lib_Dist_Zilla_Plugin_ModuleInstall_pm.t
 t/000-report-versions-tiny.t
 weaver.ini
 xt/author/critic.t
