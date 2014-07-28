@@ -1,6 +1,6 @@
 ﻿Revision history for Dist-Zilla-Plugin-ModuleInstall
 
-1.000000 2014-07-28T12:41:46Z
+1.000000 2014-07-28T12:51:02Z
  [00 Major]
  - Packaging changes that may affect downstream who work by hand
 
@@ -13,6 +13,7 @@
  - Shipping is now done exclusively with ExtUtils::MakeMaker
  - https://questhub.io/realm/perl/quest/5388cc12bbd0be5b2500011f
  - This means it may be some more time before this actually has tests.
+ - No More Dogfood
 
  [Dependencies::Stats]
  - Dependencies changed since 0.02000000, see misc/*.deps* for details

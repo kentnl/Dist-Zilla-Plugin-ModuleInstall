@@ -16,6 +16,8 @@ auto_prereqs_skip = ^inc::
 bumpversions = 1
 toolkit          = eumm
 toolkit_hardness = soft
+copyfiles        = LICENSE
+srcreadme        = mkdn
 
 ;version_major  = 00
 ;version_minor  = 01
