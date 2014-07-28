@@ -11,7 +11,7 @@ our $VERSION = '1.000000';
 
 # AUTHORITY
 
-use Moose;
+use Moose qw( has with );
 use Moose::Autobox;
 use Config;
 use Dist::Zilla::Plugin::MakeMaker::Runner;
@@ -206,6 +206,8 @@ sub setup_installer {
   }
   return;
 }
+__PACKAGE__->meta->make_immutable;
+no Moose;
 
 1;
 
