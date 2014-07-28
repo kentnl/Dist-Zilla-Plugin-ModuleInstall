@@ -10,6 +10,7 @@ META.yml
 Makefile.PL
 README
 dist.ini
+dist.ini.meta
 lib/Dist/Zilla/Plugin/ModuleInstall.pm
 misc/Changes.deps
 misc/Changes.deps.all
