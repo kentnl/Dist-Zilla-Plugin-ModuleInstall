@@ -2,7 +2,9 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Plugin::ModuleInstall;
-$Dist::Zilla::Plugin::ModuleInstall::VERSION = '0.02000001';
+
+our $VERSION = '0.02000001';
+
 # ABSTRACT: Build Module::Install based Distributions with Dist::Zilla
 
 use Moose;

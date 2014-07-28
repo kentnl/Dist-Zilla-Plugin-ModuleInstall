@@ -13,6 +13,7 @@ normal_form  = numify
 mantissa     = 8
 twitter_hash_tags = #perl #cpan
 auto_prereqs_skip = ^inc::
+bumpversions = 1
 
 ;version_major  = 00
 ;version_minor  = 01
