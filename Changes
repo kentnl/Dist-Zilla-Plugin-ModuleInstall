@@ -9,13 +9,19 @@
  - This is the primary reason for the 1.x on the box.
  - https://questhub.io/realm/perl/quest/5388d3a9bbd0be2224000129
 
+ [02 Toolkit Change]
+ - Shipping is now done exclusively with ExtUtils::MakeMaker
+ - https://questhub.io/realm/perl/quest/5388cc12bbd0be5b2500011f
+ - This means it may be some more time before this actually has tests.
+ - No More Dogfood
+
  [Dependencies::Stats]
  - Dependencies changed since 0.02000000, see misc/*.deps* for details
- - build: +1 -1
- - configure: +1 -1
- - develop: +44 -2 (recommends: -1, suggests: +1 ↑1)
+ - build: -1
+ - configure: ↓1 (recommends: +1)
+ - develop: +43 -2 (recommends: -1, suggests: +1 ↑1)
  - runtime: -1
- - test: +6 ↑1 -2 (recommends: +3)
+ - test: +6 ↓1 -2 (recommends: +5)
 
 0.02000000 2013-04-06T06:45:47Z
  - Maintenance/Bugfix release
