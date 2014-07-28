@@ -2,13 +2,7 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Plugin::ModuleInstall;
-BEGIN {
-  $Dist::Zilla::Plugin::ModuleInstall::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Dist::Zilla::Plugin::ModuleInstall::VERSION = '0.02000001';
-}
-
+$Dist::Zilla::Plugin::ModuleInstall::VERSION = '0.02000001';
 # ABSTRACT: Build Module::Install based Distributions with Dist::Zilla
 
 use Moose;
@@ -46,6 +40,20 @@ with 'Dist::Zilla::Role::PrereqSource';
 with 'Dist::Zilla::Role::TestRunner';
 
 use Dist::Zilla::File::InMemory;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -144,11 +152,22 @@ sub _generate_makefile_pl {
 }
 
 
+
+
+
+
+
 sub register_prereqs {
   my ($self) = @_;
   $self->zilla->register_prereqs( { phase => 'configure' }, 'ExtUtils::MakeMaker' => 6.42 );
   $self->zilla->register_prereqs( { phase => 'build' },     'ExtUtils::MakeMaker' => 6.42 );
 }
+
+
+
+
+
+
 
 
 sub setup_installer {
@@ -225,7 +244,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric.
+This software is copyright (c) 2014 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
