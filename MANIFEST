@@ -7,7 +7,6 @@ LICENSE
 MANIFEST
 META.json
 META.yml
-Makefile.PL
 README
 dist.ini
 dist.ini.meta

@@ -8,11 +8,9 @@ use Module::Build 0.3601;
 
 my %module_build_args = (
   "build_requires" => {
-    "ExtUtils::MakeMaker" => "6.42",
     "Module::Build" => "0.4206"
   },
   "configure_requires" => {
-    "ExtUtils::MakeMaker" => "6.42",
     "Module::Build" => "0.4206"
   },
   "dist_abstract" => "Build Module::Install based Distributions with Dist::Zilla",
@@ -44,7 +42,7 @@ my %module_build_args = (
   },
   "script_files" => [],
   "test_requires" => {
-    "ExtUtils::MakeMaker" => "6.42",
+    "ExtUtils::MakeMaker" => 0,
     "File::Spec" => 0,
     "File::Spec::Functions" => 0,
     "List::Util" => 0,
@@ -56,7 +54,7 @@ my %module_build_args = (
 
 
 my %fallback_build_requires = (
-  "ExtUtils::MakeMaker" => "6.42",
+  "ExtUtils::MakeMaker" => 0,
   "File::Spec" => 0,
   "File::Spec::Functions" => 0,
   "List::Util" => 0,

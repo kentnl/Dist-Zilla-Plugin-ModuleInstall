@@ -9,6 +9,11 @@ try_built = 1
 
 [@Author::KENTNL]
 git_versions = 1
+normal_form  = numify
+mantissa     = 8
+twitter_hash_tags = #perl #cpan
+auto_prereqs_skip = ^inc::
+
 ;version_major  = 00
 ;version_minor  = 01
 ;version_rel_year = 2009
@@ -16,12 +21,6 @@ git_versions = 1
 ;version_rel_day = 22
 ;version_rel_hour = 08
 ;version_rel_time_zone = Pacific/Auckland
-normal_form  = numify
-mantissa     = 8
-twitter_hash_tags = #perl #cpan
-auto_prereqs_skip = ^inc::
-
-[ModuleInstall]
 
 [Prereqs]
 Module::Install = 0.90

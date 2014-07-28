@@ -1,13 +1,11 @@
 do { my $x = {
        'build' => {
                     'requires' => {
-                                    'ExtUtils::MakeMaker' => '6.42',
                                     'Module::Build' => '0.4206'
                                   }
                   },
        'configure' => {
                         'requires' => {
-                                        'ExtUtils::MakeMaker' => '6.42',
                                         'Module::Build' => '0.4206'
                                       }
                       },
@@ -93,7 +91,7 @@ do { my $x = {
                                      'CPAN::Meta::Requirements' => '2.120900'
                                    },
                    'requires' => {
-                                   'ExtUtils::MakeMaker' => '6.42',
+                                   'ExtUtils::MakeMaker' => '0',
                                    'File::Spec' => '0',
                                    'File::Spec::Functions' => '0',
                                    'List::Util' => '0',

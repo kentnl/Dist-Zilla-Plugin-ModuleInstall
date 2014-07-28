@@ -3,7 +3,7 @@ abstract: 'Build Module::Install based Distributions with Dist::Zilla'
 author:
   - 'Kent Fredric <kentnl@cpan.org>'
 build_requires:
-  ExtUtils::MakeMaker: '6.42'
+  ExtUtils::MakeMaker: '0'
   File::Spec: '0'
   File::Spec::Functions: '0'
   List::Util: '0'
@@ -12,7 +12,6 @@ build_requires:
   Test::More: '1.001003'
   version: '0.77'
 configure_requires:
-  ExtUtils::MakeMaker: '6.42'
   Module::Build: '0.4206'
 dynamic_config: 0
 generated_by: 'Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.142060'
@@ -562,13 +561,6 @@ x_Dist_Zilla:
           type: requires
       name: '@Author::KENTNL/::Role::BundleDeps'
       version: '5.019'
-    -
-      class: Dist::Zilla::Plugin::ModuleInstall
-      config:
-        Dist::Zilla::Role::TestRunner:
-          default_jobs: 1
-      name: ModuleInstall
-      version: '0.02000001'
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:

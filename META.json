@@ -16,13 +16,11 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.42",
             "Module::Build" : "0.4206"
          }
       },
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.42",
             "Module::Build" : "0.4206"
          }
       },
@@ -108,7 +106,7 @@
             "CPAN::Meta::Requirements" : "2.120900"
          },
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.42",
+            "ExtUtils::MakeMaker" : "0",
             "File::Spec" : "0",
             "File::Spec::Functions" : "0",
             "List::Util" : "0",
@@ -787,16 +785,6 @@
             },
             "name" : "@Author::KENTNL/::Role::BundleDeps",
             "version" : "5.019"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::ModuleInstall",
-            "config" : {
-               "Dist::Zilla::Role::TestRunner" : {
-                  "default_jobs" : 1
-               }
-            },
-            "name" : "ModuleInstall",
-            "version" : "0.02000001"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs",
