@@ -128,7 +128,7 @@ sub _generate_makefile_pl {
     push @requires, qq{\n# @$key => $target};
     my $hash = $prereqs->requirements_for( @{$key} )->as_string_hash;
     for ( sort keys %{$hash} ) {
-      if ( $_ eq 'perl' ) {
+      if ( 'perl' eq $_ ) {
         push @requires, _label_string_template( $self, { label => 'perl_version', string => $hash->{$_} } );
         next;
       }
@@ -160,7 +160,7 @@ sub _generate_makefile_pl {
       headings => join( qq{\n}, @headings ),
       requires => join( qq{\n}, @requires ),
       feet     => join( qq{\n}, @feet ),
-    }
+    },
   );
   return $content;
 }
@@ -175,6 +175,7 @@ sub register_prereqs {
   my ($self) = @_;
   $self->zilla->register_prereqs( { phase => 'configure' }, 'ExtUtils::MakeMaker' => 6.42 );
   $self->zilla->register_prereqs( { phase => 'build' },     'ExtUtils::MakeMaker' => 6.42 );
+  return;
 }
 
 
@@ -185,7 +186,7 @@ sub register_prereqs {
 
 
 sub setup_installer {
-  my ( $self, $arg ) = @_;
+  my ( $self, ) = @_;
 
   my $file = Dist::Zilla::File::FromCode->new( { name => 'Makefile.PL', code => sub { _generate_makefile_pl($self) }, } );
 
