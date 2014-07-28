@@ -10,7 +10,7 @@ try_built = 1
 [@Author::KENTNL]
 git_versions = 1
 normal_form  = numify
-mantissa     = 8
+mantissa     = 6
 twitter_hash_tags = #perl #cpan
 auto_prereqs_skip = ^inc::
 bumpversions = 1

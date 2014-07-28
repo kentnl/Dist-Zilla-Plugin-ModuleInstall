@@ -1,6 +1,14 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [00 Major]
+ - Packaging changes that may affect downstream who work by hand
+
+ [01 Version Scheme Change]
+ - Migrating from x.yyyyyyyy ( = 8 ) to x.yyyyyy ( = 6 )
+ - This is the primary reason for the 1.x on the box.
+ - https://questhub.io/realm/perl/quest/5388d3a9bbd0be2224000129
+
  [Dependencies::Stats]
  - Dependencies changed since 0.02000000, see misc/*.deps* for details
  - build: +1 -1
