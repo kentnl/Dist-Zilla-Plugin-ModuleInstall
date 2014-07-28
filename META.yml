@@ -36,8 +36,9 @@ requires:
   Moose: '0.92'
   Moose::Autobox: '0.10'
   namespace::autoclean: '0'
-  perl: '5.006'
+  perl: '5.008'
   strict: '0'
+  utf8: '0'
   warnings: '0'
 resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-ModuleInstall/issues
@@ -118,6 +119,7 @@ x_BuiltWith:
     Test::Pod::Coverage: '1.10'
     namespace::autoclean: '0.19'
     strict: '1.08'
+    utf8: '1.14'
     version: '0.9908'
     warnings: '1.24'
   perl:
