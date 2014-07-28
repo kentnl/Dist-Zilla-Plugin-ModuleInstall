@@ -207,7 +207,7 @@ EOF
   for (@generated) {
     if ( $_->is_new ) {
       $self->log( 'ModuleInstall created: ' . $_->name );
-      if ( $_->name =~ /^inc\/Module\/Install/ ) {
+      if ( $_->name =~ /\Ainc\/Module\/Install/msx ) {
         $self->log( 'ModuleInstall added  : ' . $_->name );
         $self->add_file( $_->file );
       }
@@ -243,7 +243,7 @@ dist.ini
 
 =head1 DESCRIPTION
 
-This module will create a F<Makefile.PL> for installing the dist using L<Module::Install>.
+This module will create a F<Makefile.PL> for installing the dist using L<< C<Module::Install>|Module::Install >>.
 
 It is at present a very minimal feature set, but it works.
 

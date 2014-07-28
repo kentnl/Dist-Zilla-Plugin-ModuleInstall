@@ -20,6 +20,7 @@ $bundle->configure;
 
 my @stopwords = (
   qw(
+    ini Makefile tmpdir
     )
 );
 for my $wordlist (@stopwords) {
