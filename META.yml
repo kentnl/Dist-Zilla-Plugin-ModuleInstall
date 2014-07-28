@@ -24,6 +24,7 @@ provides:
     file: lib/Dist/Zilla/Plugin/ModuleInstall.pm
     version: '1.000000'
 requires:
+  Carp: '0'
   Dist::Zilla::File::InMemory: '0'
   Dist::Zilla::Plugin::MakeMaker::Runner: '0'
   Dist::Zilla::Role::BuildRunner: '0'
@@ -50,6 +51,7 @@ x_BuiltWith:
     CPAN::Meta: '2.142060'
     CPAN::Meta::Prereqs: '2.142060'
     CPAN::Meta::Requirements: '2.125'
+    Carp: '1.34'
     Dist::Zilla::App::Command::bakeini: '0.001001'
     Dist::Zilla::File::InMemory: '5.019'
     Dist::Zilla::Plugin::Authority: '1.006'

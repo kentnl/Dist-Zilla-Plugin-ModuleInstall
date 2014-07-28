@@ -20,6 +20,7 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Dist::Zilla::Plugin::ModuleInstall",
   "PREREQ_PM" => {
+    "Carp" => 0,
     "Dist::Zilla::File::InMemory" => 0,
     "Dist::Zilla::Plugin::MakeMaker::Runner" => 0,
     "Dist::Zilla::Role::BuildRunner" => 0,
@@ -53,6 +54,7 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
+  "Carp" => 0,
   "Dist::Zilla::File::InMemory" => 0,
   "Dist::Zilla::Plugin::MakeMaker::Runner" => 0,
   "Dist::Zilla::Role::BuildRunner" => 0,

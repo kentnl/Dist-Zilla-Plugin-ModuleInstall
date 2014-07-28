@@ -65,6 +65,7 @@ do { my $x = {
                     },
        'runtime' => {
                       'requires' => {
+                                      'Carp' => '0',
                                       'Dist::Zilla::File::InMemory' => '0',
                                       'Dist::Zilla::Plugin::MakeMaker::Runner' => '0',
                                       'Dist::Zilla::Role::BuildRunner' => '0',

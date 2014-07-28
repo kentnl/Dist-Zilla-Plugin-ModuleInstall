@@ -14,6 +14,7 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 use Moose qw( has with );
 use Moose::Autobox;
 use Config;
+use Carp qw( carp croak );
 use Dist::Zilla::Plugin::MakeMaker::Runner;
 
 has 'make_path' => (
@@ -193,11 +194,13 @@ sub setup_installer {
   $self->add_file($file);
   my (@generated) = $self->capture_tempdir(
     sub {
-      system( $^X, 'Makefile.PL' ) and do {
-        warn "Error running Makefile.PL, freezing in tempdir so you can diagnose it\n";
-        warn "Will die() when you 'exit' ( and thus, erase the tempdir )";
-        system("bash") and die "Can't call bash :(";
-        die "Finished with tempdir diagnosis, killing dzil";
+      system $^X, 'Makefile.PL' and do {
+        carp <<'EOF';
+Error running Makefile.PL, freezing in tempdir so you can diagnose it
+Will die() when you 'exit' ( and thus, erase the tempdir )
+EOF
+        system 'bash' and croak 'Can\'t call bash :(';
+        croak 'Finished with tempdir diagnosis, killing dzil';
       };
     }
   );
