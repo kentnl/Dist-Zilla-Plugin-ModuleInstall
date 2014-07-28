@@ -202,7 +202,7 @@ EOF
         system 'bash' and croak 'Can\'t call bash :(';
         croak 'Finished with tempdir diagnosis, killing dzil';
       };
-    }
+    },
   );
   for (@generated) {
     if ( $_->is_new ) {
