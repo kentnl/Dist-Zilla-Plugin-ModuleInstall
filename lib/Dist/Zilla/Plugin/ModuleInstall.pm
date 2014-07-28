@@ -69,7 +69,7 @@ require inc::Module::Install;
 
 sub _doc_template {
   my ( $self, $args ) = @_;
-  my $package;
+  my $package = __PACKAGE__;
   my $version = ( __PACKAGE__->VERSION() || 'undefined ( self-build? )' );
 
   my $t = <<"EOF";
@@ -126,7 +126,7 @@ sub _generate_makefile_pl {
   my $doreq = sub {
     my ( $key, $target ) = @_;
     push @requires, qq{\n# @$key => $target};
-    my $hash = $prereqs->requirements_for(@$key)->as_string_hash;
+    my $hash = $prereqs->requirements_for( @{$key} )->as_string_hash;
     for ( sort keys %{$hash} ) {
       if ( $_ eq 'perl' ) {
         push @requires, _label_string_template( $self, { label => 'perl_version', string => $hash->{$_} } );
