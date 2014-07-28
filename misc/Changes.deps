@@ -8,7 +8,7 @@ This file contains changes in REQUIRED dependencies for standard CPAN phases (co
  - Module::Build 0.4206
 
  [Added / test requires]
- - ExtUtils::MakeMaker 6.42
+ - ExtUtils::MakeMaker
  - File::Spec
  - File::Spec::Functions
  - List::Util
@@ -17,6 +17,12 @@ This file contains changes in REQUIRED dependencies for standard CPAN phases (co
 
  [Changed / test requires]
  - Test::More 0.98 → 1.001003
+
+ [Removed / build requires]
+ - ExtUtils::MakeMaker 6.42
+
+ [Removed / configure requires]
+ - ExtUtils::MakeMaker 6.42
 
  [Removed / runtime requires]
  - Config

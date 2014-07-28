@@ -23,7 +23,7 @@ name: Dist-Zilla-Plugin-ModuleInstall
 provides:
   Dist::Zilla::Plugin::ModuleInstall:
     file: lib/Dist/Zilla/Plugin/ModuleInstall.pm
-    version: '0.02000001'
+    version: '1.000000'
 requires:
   Dist::Zilla::File::InMemory: '0'
   Dist::Zilla::Plugin::MakeMaker::Runner: '0'
@@ -44,7 +44,7 @@ resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-ModuleInstall/issues
   homepage: https://github.com/kentnl/Dist-Zilla-Plugin-ModuleInstall
   repository: https://github.com/kentnl/Dist-Zilla-Plugin-ModuleInstall.git
-version: '0.02000001'
+version: '1.000000'
 x_BuiltWith:
   modules:
     CPAN::Meta: '2.142060'
@@ -271,7 +271,7 @@ x_Dist_Zilla:
       class: Dist::Zilla::Plugin::RewriteVersion::Sanitized
       config:
         Dist::Zilla::Role::Version::Sanitize:
-          mantissa: '8'
+          mantissa: '6'
           normal_form: numify
       name: '@Author::KENTNL/RewriteVersion::Sanitized'
       version: '0.001001'
@@ -429,7 +429,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: 0.02000001-source
+          tag: 1.000000-source
           tag_format: '%v-source'
           tag_message: v%v
           time_zone: local
@@ -483,7 +483,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: releases
           signed: 0
-          tag: '0.02000001'
+          tag: '1.000000'
           tag_format: '%v'
           tag_message: v%v
           time_zone: local

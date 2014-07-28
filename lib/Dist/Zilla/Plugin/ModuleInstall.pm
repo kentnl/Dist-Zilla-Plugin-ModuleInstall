@@ -3,7 +3,7 @@ use warnings;
 
 package Dist::Zilla::Plugin::ModuleInstall;
 
-our $VERSION = '0.02000001';
+our $VERSION = '1.000000';
 
 # ABSTRACT: Build Module::Install based Distributions with Dist::Zilla
 
@@ -215,7 +215,7 @@ Dist::Zilla::Plugin::ModuleInstall - Build Module::Install based Distributions w
 
 =head1 VERSION
 
-version 0.02000001
+version 1.000000
 
 =head1 SYNOPSIS
 

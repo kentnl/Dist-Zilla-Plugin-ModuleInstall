@@ -4,6 +4,7 @@ This file contains changes to DEVELOPMENT dependencies only ( both REQUIRED and 
  [Added / develop requires]
  - Dist::Zilla::Plugin::Authority 1.006
  - Dist::Zilla::Plugin::AutoPrereqs
+ - Dist::Zilla::Plugin::BumpVersionAfterRelease
  - Dist::Zilla::Plugin::ConfirmRelease
  - Dist::Zilla::Plugin::EOLTests
  - Dist::Zilla::Plugin::Git::Check
@@ -11,7 +12,6 @@ This file contains changes to DEVELOPMENT dependencies only ( both REQUIRED and 
  - Dist::Zilla::Plugin::Git::CommitBuild
  - Dist::Zilla::Plugin::Git::GatherDir
  - Dist::Zilla::Plugin::Git::NextRelease
- - Dist::Zilla::Plugin::Git::NextVersion::Sanitized
  - Dist::Zilla::Plugin::Git::Tag
  - Dist::Zilla::Plugin::GithubMeta
  - Dist::Zilla::Plugin::License
@@ -25,7 +25,6 @@ This file contains changes to DEVELOPMENT dependencies only ( both REQUIRED and 
  - Dist::Zilla::Plugin::MetaYAML
  - Dist::Zilla::Plugin::MinimumPerl
  - Dist::Zilla::Plugin::ModuleBuild
- - Dist::Zilla::Plugin::PkgVersion
  - Dist::Zilla::Plugin::PodCoverageTests
  - Dist::Zilla::Plugin::PodSyntaxTests
  - Dist::Zilla::Plugin::PodWeaver
@@ -34,6 +33,7 @@ This file contains changes to DEVELOPMENT dependencies only ( both REQUIRED and 
  - Dist::Zilla::Plugin::Prereqs::Recommend::MatchInstalled
  - Dist::Zilla::Plugin::ReadmeAnyFromPod
  - Dist::Zilla::Plugin::ReadmeFromPod
+ - Dist::Zilla::Plugin::RewriteVersion::Sanitized
  - Dist::Zilla::Plugin::RunExtraTests
  - Dist::Zilla::Plugin::Test::CPAN::Changes
  - Dist::Zilla::Plugin::Test::Compile::PerFile
@@ -44,12 +44,14 @@ This file contains changes to DEVELOPMENT dependencies only ( both REQUIRED and 
  - Dist::Zilla::Plugin::TestRelease
  - Dist::Zilla::Plugin::Twitter
  - Dist::Zilla::Plugin::UploadToCPAN
- - Dist::Zilla::PluginBundle::Author::KENTNL 2.016005
  - Test::CPAN::Changes 0.19
  - Test::Kwalitee 1.12
 
  [Added / develop suggests]
- - Dist::Zilla::PluginBundle::Author::KENTNL::Lite v1.3.0
+ - Dist::Zilla::App::Command::bakeini 0.001001
+
+ [Changed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL v1.7.2 → 2.016005
 
  [Removed / develop recommends]
  - Dist::Zilla::PluginBundle::Author::KENTNL::Lite v1.3.0
@@ -57,9 +59,6 @@ This file contains changes to DEVELOPMENT dependencies only ( both REQUIRED and 
  [Removed / develop requires]
  - Dist::Zilla::PluginBundle::Author::KENTNL::Lite
  - version 0.9901
-
- [Removed / develop suggests]
- - Dist::Zilla::PluginBundle::Author::KENTNL v1.7.2
 
 0.02000000 2013-04-06T06:45:47Z
  [Added / develop requires]
