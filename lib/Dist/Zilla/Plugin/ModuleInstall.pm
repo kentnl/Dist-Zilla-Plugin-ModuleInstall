@@ -3,6 +3,8 @@ use warnings;
 
 package Dist::Zilla::Plugin::ModuleInstall;
 
+our $VERSION = '0.02000001';
+
 # ABSTRACT: Build Module::Install based Distributions with Dist::Zilla
 
 use Moose;
