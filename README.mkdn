@@ -14,7 +14,7 @@ dist.ini
 
 # DESCRIPTION
 
-This module will create a `Makefile.PL` for installing the dist using [Module::Install](https://metacpan.org/pod/Module::Install).
+This module will create a `Makefile.PL` for installing the dist using [`Module::Install`](https://metacpan.org/pod/Module::Install).
 
 It is at present a very minimal feature set, but it works.
 
