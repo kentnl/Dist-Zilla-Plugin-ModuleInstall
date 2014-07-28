@@ -71,7 +71,7 @@ sub _doc_template {
   my ( $self, $args ) = @_;
   my $package;
   my $version = ( __PACKAGE__->VERSION() || 'undefined ( self-build? )' );
-  
+
   my $t = <<"EOF";
 use strict;
 use warnings;
@@ -89,17 +89,26 @@ EOF
 
 sub _label_value_template {
   my ( $self, $args ) = @_;
-  return $self->fill_in_string( q|{{$label}} '{{ $value }}';|, $args );
+  my $t = <<"EOF";
+{{ \$label }} '{{ \$value }}';
+EOF
+  return $self->fill_in_string( $t, $args );
 }
 
 sub _label_string_template {
   my ( $self, $args ) = @_;
-  return $self->fill_in_string( q|{{$label}} "{{ quotemeta( $string ) }}";|, $args );
+  my $t = <<"EOF";
+{{ \$label }} "{{ quotemeta( \$string ) }}";
+EOF
+  return $self->fill_in_string( $t, $args );
 }
 
 sub _label_string_string_template {
   my ( $self, $args ) = @_;
-  return $self->fill_in_string( q|{{$label}}  "{{ quotemeta($stringa) }}" => "{{ quotemeta($stringb) }}";|, $args );
+  my $t = <<"EOF";
+{{ \$label }}  "{{ quotemeta(\$stringa) }}" => "{{ quotemeta(\$stringb) }}";
+EOF
+  return $self->fill_in_string( $t, $args );
 }
 
 sub _generate_makefile_pl {
@@ -129,7 +138,7 @@ sub _generate_makefile_pl {
           label   => $target,
           stringa => $_,
           stringb => $hash->{$_},
-        }
+        },
         );
     }
   };
