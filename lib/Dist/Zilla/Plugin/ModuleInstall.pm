@@ -7,6 +7,8 @@ our $VERSION = '1.000000';
 
 # ABSTRACT: Build Module::Install based Distributions with Dist::Zilla
 
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
+
 use Moose;
 use Moose::Autobox;
 use Config;
