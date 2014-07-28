@@ -12,7 +12,6 @@ our $VERSION = '1.000000';
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Moose qw( has with );
-use Moose::Autobox;
 use Config;
 use Carp qw( carp croak );
 use Dist::Zilla::Plugin::MakeMaker::Runner;
@@ -151,7 +150,8 @@ sub _generate_makefile_pl {
   $doreq->( [qw(test      requires)],   'test_requires' );
 
   push @feet, qq{\n# :ExecFiles};
-  for my $execfile ( $self->zilla->find_files(':ExecFiles')->map( sub { $_->name } )->flatten ) {
+  my @found_files = @{ $self->zilla_find_files(':ExecFiles') };
+  for my $execfile ( map { $_->name } @found_files ) {
     push @feet, _label_string_template( $self, $execfile );
   }
   my $content = _doc_template(
