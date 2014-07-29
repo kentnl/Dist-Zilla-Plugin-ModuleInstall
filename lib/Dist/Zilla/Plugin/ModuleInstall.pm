@@ -15,6 +15,7 @@ use Moose qw( has with );
 use Config;
 use Carp qw( carp croak );
 use Dist::Zilla::Plugin::MakeMaker::Runner;
+use Dist::Zilla::File::FromCode;
 
 has 'make_path' => (
   isa     => 'Str',
