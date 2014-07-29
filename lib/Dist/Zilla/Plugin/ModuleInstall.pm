@@ -15,6 +15,7 @@ use Moose qw( has with );
 use Config;
 use Carp qw( carp croak );
 use Dist::Zilla::Plugin::MakeMaker::Runner;
+use Dist::Zilla::File::FromCode;
 
 has 'make_path' => (
   isa     => 'Str',
@@ -41,7 +42,11 @@ has '_runner' => (
 with 'Dist::Zilla::Role::BuildRunner';
 with 'Dist::Zilla::Role::InstallTool';
 with 'Dist::Zilla::Role::TextTemplate';
+
+# no broken tempdir, keepalive_fail helper
+use Dist::Zilla::Role::Tempdir 1.001000;
 with 'Dist::Zilla::Role::Tempdir';
+
 with 'Dist::Zilla::Role::PrereqSource';
 with 'Dist::Zilla::Role::TestRunner';
 
@@ -150,7 +155,7 @@ sub _generate_makefile_pl {
   $doreq->( [qw(test      requires)],   'test_requires' );
 
   push @feet, qq{\n# :ExecFiles};
-  my @found_files = @{ $self->zilla_find_files(':ExecFiles') };
+  my @found_files = @{ $self->zilla->find_files(':ExecFiles') };
   for my $execfile ( map { $_->name } @found_files ) {
     push @feet, _label_string_template( $self, $execfile );
   }
@@ -192,18 +197,20 @@ sub setup_installer {
   my $file = Dist::Zilla::File::FromCode->new( { name => 'Makefile.PL', code => sub { _generate_makefile_pl($self) }, } );
 
   $self->add_file($file);
-  my (@generated) = $self->capture_tempdir(
-    sub {
-      system $^X, 'Makefile.PL' and do {
-        carp <<'EOF';
-Error running Makefile.PL, freezing in tempdir so you can diagnose it
-Will die() when you 'exit' ( and thus, erase the tempdir )
-EOF
-        system 'bash' and croak 'Can\'t call bash :(';
-        croak 'Finished with tempdir diagnosis, killing dzil';
-      };
-    },
-  );
+
+  my $code = sub {
+    my ($dir) = @_;
+    system $^X, 'Makefile.PL' and do {
+
+      croak('Error running Makefile.PL. Set MI_KEEPALIVE=1 if you want to retain the directory for analysis')
+        unless $ENV{MI_KEEPALIVE};
+
+      $dir->keepalive_fail('Error running Makefile.PL. Inspect the temporary directory to determine cause.');
+    };
+  };
+
+  my (@generated) = $self->capture_tempdir($code);
+
   for (@generated) {
     if ( $_->is_new ) {
       $self->log( 'ModuleInstall created: ' . $_->name );
