@@ -42,7 +42,11 @@ has '_runner' => (
 with 'Dist::Zilla::Role::BuildRunner';
 with 'Dist::Zilla::Role::InstallTool';
 with 'Dist::Zilla::Role::TextTemplate';
+
+# no broken tempdir, keepalive_fail helper
+use Dist::Zilla::Role::Tempdir 1.001000;
 with 'Dist::Zilla::Role::Tempdir';
+
 with 'Dist::Zilla::Role::PrereqSource';
 with 'Dist::Zilla::Role::TestRunner';
 
