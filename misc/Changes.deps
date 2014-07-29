@@ -11,7 +11,11 @@ This file contains changes in REQUIRED dependencies for standard CPAN phases (co
  - File::Spec
  - File::Spec::Functions
  - List::Util
+ - Module::Install 0.90
+ - Path::Tiny
  - Scalar::Util
+ - Test::DZil
+ - Test::Differences
  - version 0.77
 
  [Changed / configure requires]
