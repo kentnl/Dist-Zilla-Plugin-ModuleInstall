@@ -191,6 +191,10 @@ sub register_prereqs {
 
 
 
+my $error_lead   = 'Error running Makefile.PL for Module::Install. ';
+my $no_keepalive = $error_load . 'Set MI_KEEPALIVE=1 if you want to retain the directory for analysis';
+my $keepalive    = $error_load . 'Inspect the temporary directory to determine cause';
+
 sub setup_installer {
   my ( $self, ) = @_;
 
@@ -202,10 +206,9 @@ sub setup_installer {
     my ($dir) = @_;
     system $^X, 'Makefile.PL' and do {
 
-      croak('Error running Makefile.PL. Set MI_KEEPALIVE=1 if you want to retain the directory for analysis')
-        unless $ENV{MI_KEEPALIVE};
+      croak($no_keepalive) unless $ENV{MI_KEEPALIVE};
 
-      $dir->keepalive_fail('Error running Makefile.PL. Inspect the temporary directory to determine cause.');
+      $dir->keepalive_fail($keepalive);
     };
   };
 
