@@ -1,34 +1,51 @@
 ﻿Revision history for Dist-Zilla-Plugin-ModuleInstall
 
+1.000000 2014-07-29T10:55:00Z
+ [00 Major]
+ - Packaging changes that may affect downstream who work by hand
+
+ [01 Version Scheme Change]
+ - Migrating from x.yyyyyyyy ( = 8 ) to x.yyyyyy ( = 6 )
+ - This is the primary reason for the 1.x on the box.
+ - https://questhub.io/realm/perl/quest/5388d3a9bbd0be2224000129
+
+ [02 Toolkit Change]
+ - Shipping is now done exclusively with ExtUtils::MakeMaker
+ - https://questhub.io/realm/perl/quest/5388cc12bbd0be5b2500011f
+ - This means it may be some more time before this actually has tests.
+ - No More Dogfood
+
+ [03 Misc]
+ - Handling failure cases with MI slightly improved.
+ - Depending on a version of ::Tempdir that acutally emits files.
+ - Moved to kentnl org
+
+ [Dependencies::Stats]
+ - Dependencies changed since 0.02000000, see misc/*.deps* for details
+ - build: -1
+ - configure: ↓1 (recommends: +1)
+ - develop: +44 -2 (recommends: -1, suggests: +1 ↑1)
+ - runtime: +3 ↑2 -1
+ - test: +10 ↓1 -2 (recommends: +5)
+
 0.02000000 2013-04-06T06:45:47Z
  - Maintenance/Bugfix release
 
  [!Noteworthy Changes]
  - Properly supports BuildRunner role now so works again with dzil xtest
 
- [Dependencies::Added / develop requires]
- - Pod::Coverage::TrustPod
- - Test::CPAN::Meta
- - Test::Pod 1.41
- - Test::Pod::Coverage 1.08
- - version 0.9901
-
- [Dependencies::Changed / develop recommends]
- - Dist::Zilla::PluginBundle::Author::KENTNL::Lite 0.01009803 → v1.3.0
-
- [Dependencies::Changed / develop suggests]
- - Dist::Zilla::PluginBundle::Author::KENTNL v1.2.0 → v1.7.2
-
- [Dependencies::Changed / test requires]
- - Test::More 0.96 → 0.98
+ [Dependencies::Stats]
+ - Dependencies changed since 0.01054021, see misc/*.deps* for details
+ - develop: +5 (recommends: ↑1, suggests: ↑1)
+ - runtime: +3
+ - test: ↑1
 
  [Documentation]
  - Update copyright year
  - add README.mkdn
 
  [Internals]
- - defer build/test to MakeMaker::Runner, copying implementation details
-   from MakeMaker
+ - defer build/test to MakeMaker::Runner, copying implementation details from MakeMaker
 
  [Meta]
  - Bug tracker to github
@@ -39,17 +56,11 @@
 0.01054021 2012-02-02T19:30:41Z
  - Maintenance release
 
- [Dependencies::Changed]
- - develop suggests : Dist::Zilla::PluginBundle::Author::KENTNL
-   v1.0.0 → v1.2.0
-
- [Dependencies::New]
- - runtime requires : perl 5.006
- - runtime requires : strict
- - runtime requires : warnings
-
- [Dependencies::Removed]
- - test requires : English
+ [Dependencies::Stats]
+ - Dependencies changed since 0.01054020, see misc/*.deps* for details
+ - develop: (suggests: ↑1)
+ - runtime: +3
+ - test: -1
 
  [Packaging]
  - Update LICENSE ( Indent, Date, Address )
@@ -61,17 +72,13 @@
 
 0.01054020 2011-04-04T15:36:00Z
  [BugFix]
- - rt#61170 "wrong inc::module::install prereq" should be fixed in this
-   release.
+ - rt#61170 "wrong inc::module::install prereq" should be fixed in this release.
 
- [Dependencies]
- - No longer (falsely) deps inc::Module::Install ( rt#61170 )
-
- [Dependencies::Devel]
- - Recommneds/suggests/etc on @Author::KENTNL bundles.
-
- [Dependencies::Test]
- - Depends English.pm
+ [Dependencies::Stats]
+ - Dependencies changed since 0.01029216, see misc/*.deps* for details
+ - develop: +1 (recommends: +1, suggests: +1)
+ - runtime: -1
+ - test: +1
 
  [Packaging]
  - No longer indexes ^inc:: things. ( rt#61170 )
@@ -89,20 +96,22 @@
 0.01029216 2010-08-04T11:37:06Z
  - Upgraded codebase to work with DZil 4.
  - New support for build/test/config/recommends phases.
- - Now dies and leaves you in the tempdir if it manages to generate  a
-   fubared Makefile.PL
+ - Now dies and leaves you in the tempdir if it manages to generate  a fubared Makefile.PL
  - Now using Latest Role::Tempdir
  - General overhaul of everything.
- - This release hopefully resolves rt #55840 ( reported by Salve J. Nilsen
-   )
+ - This release hopefully resolves rt #55840 ( reported by Salve J. Nilsen )
  - This now ships its own default test-runner.
  - Attempted support at supporting scripts via :ExecFiles
- - More errors moved to occur in the dzil phase, not in the templater  (
-   which suppresses sneaky errors that I had happening because the code in
-   the templates were dying, and emitting "hurp, something failed" into the
-   template, which, being perl code, wasn't too great )
+ - More errors moved to occur in the dzil phase, not in the templater  ( which suppresses sneaky errors that I had
+   happening because the code in the templates were dying, and emitting "hurp, something failed" into the template,
+   which, being perl code, wasn't too great )
  - Emitted Makefile.PL has more comments explaining whats happening.
  - Injects a "Hey, don't modify this file!" warning.
+
+ [Dependencies::Stats]
+ - Dependencies changed since 0.01002219, see misc/*.deps* for details
+ - runtime: +7 ↑1 -1
+ - test: +3
 
 0.01002219 2009-11-13T14:03:57Z
  - First version.
