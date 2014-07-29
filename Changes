@@ -1,5 +1,7 @@
 ﻿Revision history for Dist-Zilla-Plugin-ModuleInstall
 
+1.000001 2014-07-29T10:55:37Z
+
 1.000000 2014-07-29T10:55:00Z
  [00 Major]
  - Packaging changes that may affect downstream who work by hand
