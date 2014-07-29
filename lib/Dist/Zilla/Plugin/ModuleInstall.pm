@@ -191,24 +191,29 @@ it in the dist selectively.
 
 =cut
 
+my $error_load   = 'Error running Makefile.PL for Module::Install. ';
+my $no_keepalive = $error_load . 'Set MI_KEEPALIVE=1 if you want to retain the directory for analysis';
+my $keepalive    = $error_load . 'Inspect the temporary directory to determine cause';
+
 sub setup_installer {
   my ( $self, ) = @_;
 
   my $file = Dist::Zilla::File::FromCode->new( { name => 'Makefile.PL', code => sub { _generate_makefile_pl($self) }, } );
 
   $self->add_file($file);
-  my (@generated) = $self->capture_tempdir(
-    sub {
-      system $^X, 'Makefile.PL' and do {
-        carp <<'EOF';
-Error running Makefile.PL, freezing in tempdir so you can diagnose it
-Will die() when you 'exit' ( and thus, erase the tempdir )
-EOF
-        system 'bash' and croak 'Can\'t call bash :(';
-        croak 'Finished with tempdir diagnosis, killing dzil';
-      };
-    },
-  );
+
+  my $code = sub {
+    my ($dir) = @_;
+    system $^X, 'Makefile.PL' and do {
+
+      croak($no_keepalive) unless $ENV{MI_KEEPALIVE};
+
+      $dir->keepalive_fail($keepalive);
+    };
+  };
+
+  my (@generated) = $self->capture_tempdir($code);
+
   for (@generated) {
     if ( $_->is_new ) {
       $self->log( 'ModuleInstall created: ' . $_->name );
