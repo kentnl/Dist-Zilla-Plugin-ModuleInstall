@@ -70,7 +70,11 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
  - File::Spec
  - File::Spec::Functions
  - List::Util
+ - Module::Install 0.90
+ - Path::Tiny
  - Scalar::Util
+ - Test::DZil
+ - Test::Differences
  - version 0.77
 
  [Changed / configure requires]
