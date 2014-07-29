@@ -191,7 +191,7 @@ sub register_prereqs {
 
 
 
-my $error_lead   = 'Error running Makefile.PL for Module::Install. ';
+my $error_load   = 'Error running Makefile.PL for Module::Install. ';
 my $no_keepalive = $error_load . 'Set MI_KEEPALIVE=1 if you want to retain the directory for analysis';
 my $keepalive    = $error_load . 'Inspect the temporary directory to determine cause';
 
