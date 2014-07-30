@@ -4,6 +4,9 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
  [Changed / test recommends]
  - CPAN::Meta 0 → 2.120900
 
+ [Changed / test requires]
+ - Path::Tiny 0 → 0.018
+
  [Removed / test recommends]
  - CPAN::Meta::Prereqs
  - CPAN::Meta::Requirements 2.120900
