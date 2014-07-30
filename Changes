@@ -1,5 +1,13 @@
 ﻿Revision history for Dist-Zilla-Plugin-ModuleInstall
 
+1.000001 2014-07-30T04:06:36Z
+ [Bugfix]
+ - Declare test requires for a Path::Tiny that can export tempdir
+
+ [Dependencies::Stats]
+ - Dependencies changed since 1.000000, see misc/*.deps* for details
+ - test: ↑1 -1 (recommends: ↑1 -2)
+
 1.000000 2014-07-29T10:55:00Z
  [00 Major]
  - Packaging changes that may affect downstream who work by hand

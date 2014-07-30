@@ -1,6 +1,13 @@
 This file contains changes in REQUIRED dependencies for standard CPAN phases (configure/build/runtime/test)
 
-0.02000001
+1.000001
+ [Changed / test requires]
+ - Path::Tiny 0 → 0.018
+
+ [Removed / test requires]
+ - version 0.77
+
+1.000000 2014-07-29T10:55:00Z
  [Added / runtime requires]
  - Carp
  - Dist::Zilla::File::FromCode

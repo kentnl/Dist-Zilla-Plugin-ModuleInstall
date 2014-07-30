@@ -44,14 +44,13 @@ my %WriteMakefileArgs = (
     "File::Spec::Functions" => 0,
     "List::Util" => 0,
     "Module::Install" => "0.90",
-    "Path::Tiny" => 0,
+    "Path::Tiny" => "0.018",
     "Scalar::Util" => 0,
     "Test::DZil" => 0,
     "Test::Differences" => 0,
-    "Test::More" => "0.89",
-    "version" => "0.77"
+    "Test::More" => "0.89"
   },
-  "VERSION" => "1.000000",
+  "VERSION" => "1.000001",
   "test" => {
     "TESTS" => "t/*.t t/00-compile/*.t"
   }
@@ -76,7 +75,7 @@ my %FallbackPrereqs = (
   "Module::Install" => "0.90",
   "Moose" => "0.92",
   "Moose::Autobox" => "0.10",
-  "Path::Tiny" => 0,
+  "Path::Tiny" => "0.018",
   "Scalar::Util" => 0,
   "Test::DZil" => 0,
   "Test::Differences" => 0,
@@ -84,7 +83,6 @@ my %FallbackPrereqs = (
   "namespace::autoclean" => 0,
   "strict" => 0,
   "utf8" => 0,
-  "version" => "0.77",
   "warnings" => 0
 );
 

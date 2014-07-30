@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Plugin::ModuleInstall;
 
-our $VERSION = '1.000000';
+our $VERSION = '1.000001';
 
 # ABSTRACT: Build Module::Install based Distributions with Dist::Zilla
 
@@ -243,7 +243,7 @@ Dist::Zilla::Plugin::ModuleInstall - Build Module::Install based Distributions w
 
 =head1 VERSION
 
-version 1.000000
+version 1.000001
 
 =head1 SYNOPSIS
 
