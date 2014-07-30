@@ -8,7 +8,7 @@ build_requires:
   File::Spec::Functions: '0'
   List::Util: '0'
   Module::Install: '0.90'
-  Path::Tiny: '0'
+  Path::Tiny: '0.018'
   Scalar::Util: '0'
   Test::DZil: '0'
   Test::Differences: '0'
@@ -559,6 +559,14 @@ x_Dist_Zilla:
           phase: runtime
           type: requires
       name: Prereqs
+      version: '5.020'
+    -
+      class: Dist::Zilla::Plugin::Prereqs
+      config:
+        Dist::Zilla::Plugin::Prereqs:
+          phase: test
+          type: requires
+      name: TestRequires
       version: '5.020'
     -
       class: Dist::Zilla::Plugin::FinderCode
