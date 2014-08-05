@@ -237,6 +237,8 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Dist::Zilla::Plugin::ModuleInstall - Build Module::Install based Distributions with Dist::Zilla
