@@ -1,6 +1,11 @@
 ﻿Revision history for Dist-Zilla-Plugin-ModuleInstall
 
-1.000002 2014-08-05T03:17:55Z
+1.000002 2014-08-05T03:20:44Z
+ [00 Trivial]
+ - no code changes.
+ - Test code updated.
+ - Pod::Weaver -SingleEncoding turned on
+
  [Dependencies::Stats]
  - Dependencies changed since 1.000001, see misc/*.deps* for details
  - develop: (suggests: ↑1)
