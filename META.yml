@@ -5,17 +5,14 @@ author:
 build_requires:
   ExtUtils::MakeMaker: '0'
   File::Spec: '0'
-  File::Spec::Functions: '0'
-  List::Util: '0'
   Module::Install: '0.90'
   Path::Tiny: '0.018'
-  Scalar::Util: '0'
   Test::DZil: '0'
   Test::Differences: '0'
   Test::More: '0.89'
 configure_requires:
   ExtUtils::MakeMaker: '0'
-dynamic_config: 0
+dynamic_config: '0'
 generated_by: 'Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.142060'
 license: perl
 meta-spec:
@@ -25,7 +22,7 @@ name: Dist-Zilla-Plugin-ModuleInstall
 provides:
   Dist::Zilla::Plugin::ModuleInstall:
     file: lib/Dist/Zilla/Plugin/ModuleInstall.pm
-    version: '1.000001'
+    version: '1.000002'
 requires:
   Carp: '0'
   Dist::Zilla::File::FromCode: '0'
@@ -49,7 +46,7 @@ resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-ModuleInstall/issues
   homepage: https://github.com/kentnl/Dist-Zilla-Plugin-ModuleInstall
   repository: https://github.com/kentnl/Dist-Zilla-Plugin-ModuleInstall.git
-version: '1.000001'
+version: '1.000002'
 x_BuiltWith:
   modules:
     CPAN::Meta: '2.142060'
@@ -76,7 +73,7 @@ x_BuiltWith:
     Dist::Zilla::Plugin::Manifest: '5.020'
     Dist::Zilla::Plugin::ManifestSkip: '5.020'
     Dist::Zilla::Plugin::MetaConfig: '5.020'
-    Dist::Zilla::Plugin::MetaData::BuiltWith: '1.000001'
+    Dist::Zilla::Plugin::MetaData::BuiltWith: '1.001000'
     Dist::Zilla::Plugin::MetaJSON: '5.020'
     Dist::Zilla::Plugin::MetaProvides::Package: '2.000003'
     Dist::Zilla::Plugin::MetaTests: '5.020'
@@ -96,11 +93,11 @@ x_BuiltWith:
     Dist::Zilla::Plugin::Test::Kwalitee: '2.07'
     Dist::Zilla::Plugin::Test::MinimumVersion: '2.000005'
     Dist::Zilla::Plugin::Test::Perl::Critic: '2.112410'
-    Dist::Zilla::Plugin::Test::ReportPrereqs: '0.016'
+    Dist::Zilla::Plugin::Test::ReportPrereqs: '0.018'
     Dist::Zilla::Plugin::TestRelease: '5.020'
     Dist::Zilla::Plugin::Twitter: '0.025'
     Dist::Zilla::Plugin::UploadToCPAN: '5.020'
-    Dist::Zilla::PluginBundle::Author::KENTNL: '2.016005'
+    Dist::Zilla::PluginBundle::Author::KENTNL: '2.016007'
     Dist::Zilla::Role::BuildRunner: '5.020'
     Dist::Zilla::Role::InstallTool: '5.020'
     Dist::Zilla::Role::PrereqSource: '5.020'
@@ -109,14 +106,11 @@ x_BuiltWith:
     Dist::Zilla::Role::TextTemplate: '5.020'
     ExtUtils::MakeMaker: '6.98'
     File::Spec: '3.48'
-    File::Spec::Functions: '3.48'
-    List::Util: '1.39'
     Module::Install: '1.10'
     Moose: '2.1210'
     Moose::Autobox: '0.15'
     Path::Tiny: '0.055'
     Pod::Coverage::TrustPod: '0.100003'
-    Scalar::Util: '1.39'
     Test::CPAN::Changes: '0.30'
     Test::CPAN::Meta: '0.23'
     Test::DZil: '5.020'
@@ -155,7 +149,7 @@ x_Dist_Zilla:
           try_built: '1'
           try_built_method: mtime
       name: Bootstrap::lib
-      version: '1.000003'
+      version: '1.000004'
     -
       class: Dist::Zilla::Plugin::MetaConfig
       name: '@Author::KENTNL/MetaConfig'
@@ -195,7 +189,7 @@ x_Dist_Zilla:
               - -i
             uname_call: uname
       name: '@Author::KENTNL/MetaData::BuiltWith'
-      version: '1.000001'
+      version: '1.001000'
     -
       class: Dist::Zilla::Plugin::Git::GatherDir
       config:
@@ -240,7 +234,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Test::ReportPrereqs
       name: '@Author::KENTNL/Test::ReportPrereqs'
-      version: '0.016'
+      version: '0.018'
     -
       class: Dist::Zilla::Plugin::Test::Kwalitee
       name: '@Author::KENTNL/Test::Kwalitee'
@@ -301,6 +295,10 @@ x_Dist_Zilla:
             -
               class: Pod::Weaver::Plugin::H1Nester
               name: '@CorePrep/H1Nester'
+              version: '4.006'
+            -
+              class: Pod::Weaver::Plugin::SingleEncoding
+              name: -SingleEncoding
               version: '4.006'
             -
               class: Pod::Weaver::Section::Name
@@ -439,8 +437,8 @@ x_Dist_Zilla:
       config:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
-          signed: 0
-          tag: 1.000001-source
+          signed: '0'
+          tag: 1.000002-source
           tag_format: '%v-source'
           tag_message: v%v
           time_zone: local
@@ -481,7 +479,7 @@ x_Dist_Zilla:
           branch: build/%b
           build_root: ~
           message: 'Build results of %h (on %b)'
-          multiple_inheritance: 0
+          multiple_inheritance: '0'
           release_branch: releases
           release_message: 'Build results of %h (on %b)'
         Dist::Zilla::Role::Git::Repo:
@@ -493,8 +491,8 @@ x_Dist_Zilla:
       config:
         Dist::Zilla::Plugin::Git::Tag:
           branch: releases
-          signed: 0
-          tag: '1.000001'
+          signed: '0'
+          tag: '1.000002'
           tag_format: '%v'
           tag_message: v%v
           time_zone: local
