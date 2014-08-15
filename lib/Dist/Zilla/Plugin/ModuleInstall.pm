@@ -52,22 +52,6 @@ with 'Dist::Zilla::Role::TestRunner';
 
 use Dist::Zilla::File::InMemory;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 use namespace::autoclean;
 
 require inc::Module::Install;
