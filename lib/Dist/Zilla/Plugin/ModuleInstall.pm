@@ -52,22 +52,6 @@ with 'Dist::Zilla::Role::TestRunner';
 
 use Dist::Zilla::File::InMemory;
 
-=head1 DESCRIPTION
-
-This module will create a F<Makefile.PL> for installing the dist using L<< C<Module::Install>|Module::Install >>.
-
-It is at present a very minimal feature set, but it works.
-
-=cut
-
-=head1 SYNOPSIS
-
-dist.ini
-
-    [ModuleInstall]
-
-=cut
-
 use namespace::autoclean;
 
 require inc::Module::Install;
@@ -233,3 +217,18 @@ no Moose;
 
 1;
 
+=head1 DESCRIPTION
+
+This module will create a F<Makefile.PL> for installing the dist using L<< C<Module::Install>|Module::Install >>.
+
+It is at present a very minimal feature set, but it works.
+
+=cut
+
+=head1 SYNOPSIS
+
+dist.ini
+
+    [ModuleInstall]
+
+=cut
