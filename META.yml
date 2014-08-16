@@ -22,7 +22,7 @@ name: Dist-Zilla-Plugin-ModuleInstall
 provides:
   Dist::Zilla::Plugin::ModuleInstall:
     file: lib/Dist/Zilla/Plugin/ModuleInstall.pm
-    version: '1.000003'
+    version: '1.000004'
 requires:
   Carp: '0'
   Dist::Zilla::File::FromCode: '0'
@@ -46,7 +46,7 @@ resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-ModuleInstall/issues
   homepage: https://github.com/kentnl/Dist-Zilla-Plugin-ModuleInstall
   repository: https://github.com/kentnl/Dist-Zilla-Plugin-ModuleInstall.git
-version: '1.000003'
+version: '1.000004'
 x_BuiltWith:
   modules:
     CPAN::Meta: '2.142060'
@@ -448,7 +448,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: '0'
-          tag: 1.000003-source
+          tag: 1.000004-source
           tag_format: '%v-source'
           tag_message: v%v
           time_zone: local
@@ -502,7 +502,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: releases
           signed: '0'
-          tag: '1.000003'
+          tag: '1.000004'
           tag_format: '%v'
           tag_message: v%v
           time_zone: local
