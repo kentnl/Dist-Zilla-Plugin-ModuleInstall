@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Plugin::ModuleInstall;
 
-our $VERSION = '1.000002';
+our $VERSION = '1.000003';
 
 # ABSTRACT: Build Module::Install based Distributions with Dist::Zilla
 
@@ -51,22 +51,6 @@ with 'Dist::Zilla::Role::PrereqSource';
 with 'Dist::Zilla::Role::TestRunner';
 
 use Dist::Zilla::File::InMemory;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 use namespace::autoclean;
 
@@ -245,7 +229,7 @@ Dist::Zilla::Plugin::ModuleInstall - Build Module::Install based Distributions w
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 SYNOPSIS
 

@@ -1,5 +1,18 @@
 ﻿Revision history for Dist-Zilla-Plugin-ModuleInstall
 
+1.000003 2014-08-15T21:17:57Z
+ [00 Trivial]
+ - CPANDAY!
+ - no code changes.
+ - whitespace adjusted.
+
+ [Dependencies::Stats]
+ - Dependencies changed since 1.000002, see misc/*.deps* for details
+ - develop: +1 (suggests: ↑1)
+
+ [Misc]
+ - Improve source side POD to reduce build side whitespace.
+
 1.000002 2014-08-05T03:20:44Z
  [00 Trivial]
  - no code changes.
