@@ -94,6 +94,7 @@ do { my $x = {
                                      'Test::More' => '1.001006'
                                    },
                    'requires' => {
+                                   'Dist::Zilla::Util::Test::KENTNL' => '1.003001',
                                    'ExtUtils::MakeMaker' => '0',
                                    'File::Spec' => '0',
                                    'Module::Install' => '0.90',

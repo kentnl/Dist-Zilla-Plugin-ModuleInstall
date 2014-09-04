@@ -39,6 +39,7 @@ my %WriteMakefileArgs = (
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
+    "Dist::Zilla::Util::Test::KENTNL" => "1.003001",
     "ExtUtils::MakeMaker" => 0,
     "File::Spec" => 0,
     "Module::Install" => "0.90",
@@ -65,6 +66,7 @@ my %FallbackPrereqs = (
   "Dist::Zilla::Role::Tempdir" => "1.001000",
   "Dist::Zilla::Role::TestRunner" => 0,
   "Dist::Zilla::Role::TextTemplate" => 0,
+  "Dist::Zilla::Util::Test::KENTNL" => "1.003001",
   "ExtUtils::MakeMaker" => 0,
   "File::Spec" => 0,
   "Module::Install" => "0.90",

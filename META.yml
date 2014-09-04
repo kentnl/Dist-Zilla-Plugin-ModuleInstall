@@ -3,6 +3,7 @@ abstract: 'Build Module::Install based Distributions with Dist::Zilla'
 author:
   - 'Kent Fredric <kentnl@cpan.org>'
 build_requires:
+  Dist::Zilla::Util::Test::KENTNL: '1.003001'
   ExtUtils::MakeMaker: '0'
   File::Spec: '0'
   Module::Install: '0.90'
@@ -48,8 +49,6 @@ resources:
   repository: https://github.com/kentnl/Dist-Zilla-Plugin-ModuleInstall.git
 version: '1.000004'
 x_BuiltWith:
-  failures:
-    Dist::Zilla::Role::Tempdir: 'module was not found in INC'
   modules:
     CPAN::Meta: '2.142060'
     Carp: '1.34'
@@ -105,8 +104,10 @@ x_BuiltWith:
     Dist::Zilla::Role::BuildRunner: '5.020'
     Dist::Zilla::Role::InstallTool: '5.020'
     Dist::Zilla::Role::PrereqSource: '5.020'
+    Dist::Zilla::Role::Tempdir: '1.001001'
     Dist::Zilla::Role::TestRunner: '5.020'
     Dist::Zilla::Role::TextTemplate: '5.020'
+    Dist::Zilla::Util::Test::KENTNL: '1.003001'
     ExtUtils::MakeMaker: '6.98'
     File::Spec: '3.49'
     Module::Install: '1.10'
