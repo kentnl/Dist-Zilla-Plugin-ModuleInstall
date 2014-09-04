@@ -1,6 +1,6 @@
 ﻿Revision history for Dist-Zilla-Plugin-ModuleInstall
 
-1.001000 2014-09-04T20:13:19Z
+1.001000 2014-09-04T20:14:14Z
  [00 Minor]
  - tests updated.
  - uses dump_config
