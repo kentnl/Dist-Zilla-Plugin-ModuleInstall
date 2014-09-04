@@ -11,11 +11,12 @@ our $VERSION = '1.001000';
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Moose qw( has with );
+use Moose qw( has with around );
 use Config;
 use Carp qw( carp croak );
 use Dist::Zilla::Plugin::MakeMaker::Runner;
 use Dist::Zilla::File::FromCode;
+use Dist::Zilla::Util::ConfigDumper qw( config_dumper );
 
 has 'make_path' => (
   isa     => 'Str',
@@ -212,6 +213,9 @@ sub setup_installer {
   }
   return;
 }
+
+around dump_config => config_dumper( __PACKAGE__, { attrs => [qw( make_path )] } );
+
 __PACKAGE__->meta->make_immutable;
 no Moose;
 
