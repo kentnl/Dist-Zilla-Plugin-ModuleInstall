@@ -1,6 +1,8 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.001000 2014-09-04T20:16:02Z
  [00 Minor]
  - tests updated.
  - uses dump_config
