@@ -4,41 +4,24 @@ use warnings;
 
 use Test::More;
 use Test::DZil;
-use Path::Tiny qw( path tempdir );
 use Test::Differences qw( eq_or_diff );
+use Dist::Zilla::Util::Test::KENTNL 1.003001 qw( dztest );
 require Module::Install;
 
-# FILENAME: basic.t
-# CREATED: 07/29/14 02:25:01 by Kent Fredric (kentnl) <kentfredric@gmail.com>
 # ABSTRACT: Really basic test to make sure this works
 
-my $scratch = tempdir();
-my $ini = simple_ini( [ 'GatherDir', {} ], [ 'ModuleInstall', {} ], );
-$scratch->child('dist.ini')->spew_raw($ini);
-
-my $tzil = Builder->from_config(
-  {
-    dist_root => $scratch->stringify
-  }
-);
+my $test = dztest();
+my $ini;
+$test->add_file( 'dist.ini', $ini = simple_ini( [ 'GatherDir', {} ], [ 'ModuleInstall', {} ], ) );
+$test->build_ok;
 
 {
-  local $@;
-  my $failed = 1;
-  eval {
-    $tzil->build;
-    undef $failed;
-  };
-  ok( !$failed, 'Build O.K.' ) or diag explain $@;
-}
-{
-  my $distini = path( $tzil->tempdir )->child('build/dist.ini');
-  ok( -e $distini, 'dist.ini exists' );
+  my $distini = $test->test_has_built_file('dist.ini');
   eq_or_diff( $distini->slurp_raw, $ini, 'ini is expected content' );
 }
+
 {
-  my $mkf = path( $tzil->tempdir )->child('build/Makefile.PL');
-  ok( -e $mkf, 'Makefile.PL exists' );
+  my $mkf     = $test->test_has_built_file('Makefile.PL');
   my $version = $Dist::Zilla::Plugin::ModuleInstall::VERSION;
   my $miver   = $Module::Install::VERSION;
 
@@ -79,14 +62,10 @@ WriteAll();
 EOF
 }
 
-my ( $msg, ) = grep { $_->{level} eq 'info' and $_->{message} =~ q^inc/Module/Install\.pm^ } @{ $tzil->log_events };
+my ( $msg, ) = grep { $_->{level} eq 'info' and $_->{message} =~ q^inc/Module/Install\.pm^ } @{ $test->builder->log_events };
 
 ok( $msg, "Notice about adding inc::Module::Install" );
 
-my $gtemp = path( $tzil->tempdir )->iterator( { recurse => 1 } );
-while ( my $child = $gtemp->() ) {
-  note $child;
-}
-
+note explain $test->builder->log_messages;
 done_testing;
 

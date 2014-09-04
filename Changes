@@ -1,6 +1,16 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [00 Minor]
+ - tests updated.
+
+ [Dependencies::Stats]
+ - Dependencies changed since 1.000003, see misc/*.deps* for details
+ - develop: +1 ↑1 (suggests: ↑2)
+ - test: +1 (recommends: ↑1)
+
+ [Tests]
+ - Tests rewritten with dztest
 
 1.000003 2014-08-15T21:17:57Z
  [00 Trivial]

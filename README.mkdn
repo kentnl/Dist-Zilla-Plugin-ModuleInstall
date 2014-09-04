@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::ModuleInstall - Build Module::Install based Distributions w
 
 # VERSION
 
-version 1.000004
+version 1.001000
 
 # SYNOPSIS
 
