@@ -1,14 +1,14 @@
 name    = Dist-Zilla-Plugin-ModuleInstall
 author  = Kent Fredric <kentnl@cpan.org>
 license = Perl_5
-copyright_holder = Kent Fredric
+copyright_holder = Kent Fredric <kentfredric@gmail.com>
 
 
 [Bootstrap::lib]
 try_built = 1
 
 [@Author::KENTNL]
-git_versions = 1
+:version = 2.020
 normal_form  = numify
 mantissa     = 6
 twitter_hash_tags = #perl #cpan
@@ -33,6 +33,3 @@ Dist::Zilla::Role::PrereqSource = 0
 Moose::Autobox = 0.10
 Moose = 0.92
 Dist::Zilla::Role::Tempdir = 0.01027622
-
-[Prereqs / TestRequires]
-Path::Tiny = 0.018

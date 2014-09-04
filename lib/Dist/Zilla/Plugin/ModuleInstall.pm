@@ -5,17 +5,18 @@ use utf8;
 
 package Dist::Zilla::Plugin::ModuleInstall;
 
-our $VERSION = '1.000003';
+our $VERSION = '1.001000';
 
 # ABSTRACT: Build Module::Install based Distributions with Dist::Zilla
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Moose qw( has with );
+use Moose qw( has with around );
 use Config;
 use Carp qw( carp croak );
 use Dist::Zilla::Plugin::MakeMaker::Runner;
 use Dist::Zilla::File::FromCode;
+use Dist::Zilla::Util::ConfigDumper qw( config_dumper );
 
 has 'make_path' => (
   isa     => 'Str',
@@ -212,6 +213,9 @@ sub setup_installer {
   }
   return;
 }
+
+around dump_config => config_dumper( __PACKAGE__, { attrs => [qw( make_path )] } );
+
 __PACKAGE__->meta->make_immutable;
 no Moose;
 
@@ -229,7 +233,7 @@ Dist::Zilla::Plugin::ModuleInstall - Build Module::Install based Distributions w
 
 =head1 VERSION
 
-version 1.000003
+version 1.001000
 
 =head1 SYNOPSIS
 
@@ -260,7 +264,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
