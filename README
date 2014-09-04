@@ -3,7 +3,7 @@ NAME
     Distributions with Dist::Zilla
 
 VERSION
-    version 1.000004
+    version 1.001000
 
 SYNOPSIS
     dist.ini
