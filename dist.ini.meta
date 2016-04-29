@@ -1,3 +1,4 @@
+; vim: syntax=dosini
 name    = Dist-Zilla-Plugin-ModuleInstall
 author  = Kent Fredric <kentnl@cpan.org>
 license = Perl_5
@@ -16,7 +17,6 @@ auto_prereqs_skip = ^inc::
 bumpversions = 1
 toolkit          = eumm
 toolkit_hardness = soft
-copyfiles        = LICENSE
 srcreadme        = mkdn
 
 ;version_major  = 00

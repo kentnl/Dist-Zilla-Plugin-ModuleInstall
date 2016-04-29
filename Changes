@@ -3,7 +3,10 @@
 {{$NEXT}}
  [Dependencies::Stats]
  - Dependencies changed since 1.001000, see misc/*.deps* for details
- - develop: (suggests: ↑1)
+ - configure: +1 (recommends: ↑1)
+ - develop: +14 ↑3 -3 (recommends: +1, suggests: ↑2)
+ - runtime: (recommends: +1)
+ - test: +1 (recommends: ↑1 ↓1)
 
 1.001000 2014-09-04T20:16:02Z
  [00 Minor]
@@ -170,4 +173,3 @@
 
 0.01002219 2009-11-13T14:03:57Z
  - First version.
-
