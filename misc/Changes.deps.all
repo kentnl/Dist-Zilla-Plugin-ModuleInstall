@@ -51,6 +51,9 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
  - Dist::Zilla::Plugin::MetaYAML
  - Dist::Zilla::Plugin::ReadmeFromPod
 
+ [Removed / runtime requires]
+ - Moose::Autobox 0.10
+
 1.001000 2014-09-04T20:16:02Z
  [Added / develop requires]
  - Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes 0.001001

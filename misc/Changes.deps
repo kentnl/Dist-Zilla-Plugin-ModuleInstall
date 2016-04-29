@@ -7,6 +7,9 @@ This file contains changes in REQUIRED dependencies for standard CPAN phases (co
  [Added / test requires]
  - perl 5.008
 
+ [Removed / runtime requires]
+ - Moose::Autobox 0.10
+
 1.001000 2014-09-04T20:16:02Z
  [Added / runtime requires]
  - Dist::Zilla::Util::ConfigDumper

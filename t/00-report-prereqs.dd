@@ -99,7 +99,6 @@ do { my $x = {
                                       'Dist::Zilla::Util::ConfigDumper' => '0',
                                       'Module::Install' => '0.90',
                                       'Moose' => '0.92',
-                                      'Moose::Autobox' => '0.10',
                                       'namespace::autoclean' => '0',
                                       'perl' => '5.008',
                                       'strict' => '0',
