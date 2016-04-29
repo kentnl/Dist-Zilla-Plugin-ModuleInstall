@@ -7,7 +7,7 @@ use 5.008;
 use ExtUtils::MakeMaker;
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Build Module::Install based Distributions with Dist::Zilla",
+  "ABSTRACT" => "(DEPRECATED) Build Module::Install based Distributions with Dist::Zilla",
   "AUTHOR" => "Kent Fredric <kentnl\@cpan.org>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0

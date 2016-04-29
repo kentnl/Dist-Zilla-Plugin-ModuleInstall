@@ -7,7 +7,7 @@ package Dist::Zilla::Plugin::ModuleInstall;
 
 our $VERSION = '1.001001';
 
-# ABSTRACT: Build Module::Install based Distributions with Dist::Zilla
+# ABSTRACT: (DEPRECATED) Build Module::Install based Distributions with Dist::Zilla
 
 # AUTHORITY
 
@@ -220,6 +220,19 @@ __PACKAGE__->meta->make_immutable;
 no Moose;
 
 1;
+
+=head1 DEPRECATED
+
+This module is now officially deprecated.
+
+It was never really recommended, or supported, and it always existed as a gap filler for people
+who were migrating from Module::Install and had yet to understand certain design elements of C<Dist::Zilla>
+made using Module::Install effectively redundant.
+
+In short, it was an excuse, a foot-gun for the person who needed holes in their feet.
+
+I will not actively prevent this module from doing anything it didn't use to do, but its use
+should be considered officially discouraged.
 
 =head1 DESCRIPTION
 
