@@ -1,36 +1,31 @@
-NAME
-    Dist::Zilla::Plugin::ModuleInstall - Build Module::Install based
-    Distributions with Dist::Zilla
+Dist::Zilla::Plugin::ModuleInstall
 
-VERSION
-    version 1.001001
+This module will create a Makefile.PL for installing the dist using
+"Module::Install".
 
-SYNOPSIS
-    dist.ini
+It is at present a very minimal feature set, but it works.
 
-        [ModuleInstall]
+INSTALLATION
 
-DESCRIPTION
-    This module will create a Makefile.PL for installing the dist using
-    "Module::Install".
+This is a Perl module distribution. It should be installed with whichever
+tool you use to manage your installation of Perl, e.g. any of
 
-    It is at present a very minimal feature set, but it works.
+  cpanm .
+  cpan  .
+  cpanp -i .
 
-METHODS
-  register_prereqs
-    Tells Dist::Zilla about our needs to have EU::MM larger than 6.42
+Consult http://www.cpan.org/modules/INSTALL.html for further instruction.
+Should you wish to install this module manually, the procedure is
 
-  setup_installer
-    Generates the Makefile.PL, and runs it in a tmpdir, and then harvests
-    the output and stores it in the dist selectively.
-
-AUTHOR
-    Kent Fredric <kentnl@cpan.org>
+  perl Makefile.PL
+  make
+  make test
+  make install
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2014 by Kent Fredric
-    <kentfredric@gmail.com>.
 
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
+This software is copyright (c) 2016 by Kent Fredric
+<kentfredric@gmail.com>.
 
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
