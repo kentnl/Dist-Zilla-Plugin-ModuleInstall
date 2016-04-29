@@ -16,7 +16,6 @@ use Config;
 use Carp qw( carp croak );
 use Dist::Zilla::Plugin::MakeMaker::Runner;
 use Dist::Zilla::File::FromCode;
-use Dist::Zilla::Util::ConfigDumper qw( config_dumper );
 
 has 'make_path' => (
   isa     => 'Str',
@@ -50,6 +49,21 @@ with 'Dist::Zilla::Role::Tempdir';
 
 with 'Dist::Zilla::Role::PrereqSource';
 with 'Dist::Zilla::Role::TestRunner';
+
+around dump_config => sub {
+  my ( $orig, $self, @args ) = @_;
+  my $config = $self->$orig(@args);
+  my $payload = $config->{ +__PACKAGE__ } = {};
+  $payload->{make_path} = $self->make_path;
+
+  ## no critic (RequireInterpolationOfMetachars)
+  $payload->{ q[$] . __PACKAGE__ . q[::VERSION] } = $VERSION unless __PACKAGE__ eq ref $self;
+  $payload->{q[$Module::Install::VERSION]} = $Module::Install::VERSION if $INC{'Module/Install.pm'};
+  return $config;
+};
+
+__PACKAGE__->meta->make_immutable;
+no Moose;
 
 use Dist::Zilla::File::InMemory;
 
@@ -213,11 +227,6 @@ sub setup_installer {
   }
   return;
 }
-
-around dump_config => config_dumper( __PACKAGE__, { attrs => [qw( make_path )] } );
-
-__PACKAGE__->meta->make_immutable;
-no Moose;
 
 1;
 

@@ -96,7 +96,6 @@ do { my $x = {
                                       'Dist::Zilla::Role::Tempdir' => '1.001000',
                                       'Dist::Zilla::Role::TestRunner' => '0',
                                       'Dist::Zilla::Role::TextTemplate' => '0',
-                                      'Dist::Zilla::Util::ConfigDumper' => '0',
                                       'Module::Install' => '0.90',
                                       'Moose' => '0.92',
                                       'namespace::autoclean' => '0',
