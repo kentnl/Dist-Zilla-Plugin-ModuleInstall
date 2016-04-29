@@ -1,5 +1,5 @@
 ---
-abstract: 'Build Module::Install based Distributions with Dist::Zilla'
+abstract: '(DEPRECATED) Build Module::Install based Distributions with Dist::Zilla'
 author:
   - 'Kent Fredric <kentnl@cpan.org>'
 build_requires:
