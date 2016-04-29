@@ -3,25 +3,34 @@ use strict;
 use warnings;
 
 use Test::More;
-use Test::DZil;
+use Test::DZil qw( Builder simple_ini );
 use Test::Differences qw( eq_or_diff );
-use Dist::Zilla::Util::Test::KENTNL 1.003001 qw( dztest );
+use Path::Tiny qw( path );
 require Module::Install;
 
 # ABSTRACT: Really basic test to make sure this works
 
-my $test = dztest();
-my $ini;
-$test->add_file( 'dist.ini', $ini = simple_ini( [ 'GatherDir', {} ], [ 'ModuleInstall', {} ], ) );
-$test->build_ok;
+my $ini = simple_ini( [ 'GatherDir', {} ], [ 'ModuleInstall', {} ] );
 
+my $test = Builder->from_config(
+  { dist_root => 'invalid' },
+  {
+    add_files => { path( 'source', 'dist.ini' ) => $ini },
+  }
+);
+
+$test->chrome->logger->set_debug(1);
+$test->build();
+
+pass("Dist built Ok");
 {
-  my $distini = $test->test_has_built_file('dist.ini');
+  my $distini = path( $test->tempdir, 'build', 'dist.ini' );
+  ok( $distini->exists, 'dist.ini in built tree' );
   eq_or_diff( $distini->slurp_raw, $ini, 'ini is expected content' );
 }
 
 {
-  my $mkf     = $test->test_has_built_file('Makefile.PL');
+  my $mkf     = path( $test->tempdir, 'build', 'Makefile.PL' );
   my $version = $Dist::Zilla::Plugin::ModuleInstall::VERSION;
   my $miver   = $Module::Install::VERSION;
 
@@ -66,10 +75,9 @@ EOF
   eq_or_diff( $got, $expected, 'Makefile.PL is expected content' );
 }
 
-my ( $msg, ) = grep { $_->{level} eq 'info' and $_->{message} =~ q^inc/Module/Install\.pm^ } @{ $test->builder->log_events };
+my ( $msg, ) = grep { $_->{level} eq 'info' and $_->{message} =~ q^inc/Module/Install\.pm^ } @{ $test->log_events };
 
 ok( $msg, "Notice about adding inc::Module::Install" );
 
-note explain $test->builder->log_messages;
+note explain $test->log_messages;
 done_testing;
-
