@@ -10,10 +10,10 @@ build_requires:
   Test::DZil: '0'
   Test::Differences: '0'
   Test::More: '0.89'
-  perl: '5.008'
+  perl: '5.006'
 configure_requires:
   ExtUtils::MakeMaker: '0'
-  perl: '5.008'
+  perl: '5.006'
 dynamic_config: 0
 generated_by: 'Dist::Zilla version 5.043, CPAN::Meta::Converter version 2.150001'
 license: perl
@@ -41,9 +41,8 @@ requires:
   Module::Install: '0.90'
   Moose: '0.92'
   namespace::autoclean: '0'
-  perl: '5.008'
+  perl: '5.006'
   strict: '0'
-  utf8: '0'
   warnings: '0'
 resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-ModuleInstall/issues
