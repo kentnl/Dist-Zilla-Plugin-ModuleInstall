@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::ModuleInstall - (DEPRECATED) Build Module::Install based Di
 
 # VERSION
 
-version 1.001001
+version 1.001002
 
 # SYNOPSIS
 
