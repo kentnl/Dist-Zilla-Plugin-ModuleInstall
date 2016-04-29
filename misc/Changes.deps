@@ -5,11 +5,15 @@ This file contains changes in REQUIRED dependencies for standard CPAN phases (co
  - perl 5.008
 
  [Added / test requires]
+ - Path::Tiny
  - perl 5.008
 
  [Removed / runtime requires]
  - Dist::Zilla::Util::ConfigDumper
  - Moose::Autobox 0.10
+
+ [Removed / test requires]
+ - Dist::Zilla::Util::Test::KENTNL 1.003001
 
 1.001000 2014-09-04T20:16:02Z
  [Added / runtime requires]
