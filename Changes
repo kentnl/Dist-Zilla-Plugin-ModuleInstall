@@ -1,5 +1,7 @@
 ﻿Revision history for Dist-Zilla-Plugin-ModuleInstall
 
+1.001002 2016-04-29T13:11:43Z f3e94e1
+
 1.001001 2016-04-29T12:17:45Z 78daba4
  [Dependencies::Stats]
  - Dependencies changed since 1.001000, see misc/*.deps* for details
