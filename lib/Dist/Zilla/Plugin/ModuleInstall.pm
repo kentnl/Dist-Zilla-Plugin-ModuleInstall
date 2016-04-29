@@ -1,13 +1,12 @@
-use 5.008;    # utf8
+use 5.006;    # our
 use strict;
 use warnings;
-use utf8;
 
 package Dist::Zilla::Plugin::ModuleInstall;
 
-our $VERSION = '1.001000';
+our $VERSION = '1.001001';
 
-# ABSTRACT: Build Module::Install based Distributions with Dist::Zilla
+# ABSTRACT: (DEPRECATED) Build Module::Install based Distributions with Dist::Zilla
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
@@ -16,7 +15,6 @@ use Config;
 use Carp qw( carp croak );
 use Dist::Zilla::Plugin::MakeMaker::Runner;
 use Dist::Zilla::File::FromCode;
-use Dist::Zilla::Util::ConfigDumper qw( config_dumper );
 
 has 'make_path' => (
   isa     => 'Str',
@@ -50,6 +48,21 @@ with 'Dist::Zilla::Role::Tempdir';
 
 with 'Dist::Zilla::Role::PrereqSource';
 with 'Dist::Zilla::Role::TestRunner';
+
+around dump_config => sub {
+  my ( $orig, $self, @args ) = @_;
+  my $config = $self->$orig(@args);
+  my $payload = $config->{ +__PACKAGE__ } = {};
+  $payload->{make_path} = $self->make_path;
+
+  ## no critic (RequireInterpolationOfMetachars)
+  $payload->{ q[$] . __PACKAGE__ . q[::VERSION] } = $VERSION unless __PACKAGE__ eq ref $self;
+  $payload->{q[$Module::Install::VERSION]} = $Module::Install::VERSION if $INC{'Module/Install.pm'};
+  return $config;
+};
+
+__PACKAGE__->meta->make_immutable;
+no Moose;
 
 use Dist::Zilla::File::InMemory;
 
@@ -214,11 +227,6 @@ sub setup_installer {
   return;
 }
 
-around dump_config => config_dumper( __PACKAGE__, { attrs => [qw( make_path )] } );
-
-__PACKAGE__->meta->make_immutable;
-no Moose;
-
 1;
 
 __END__
@@ -229,11 +237,11 @@ __END__
 
 =head1 NAME
 
-Dist::Zilla::Plugin::ModuleInstall - Build Module::Install based Distributions with Dist::Zilla
+Dist::Zilla::Plugin::ModuleInstall - (DEPRECATED) Build Module::Install based Distributions with Dist::Zilla
 
 =head1 VERSION
 
-version 1.001000
+version 1.001001
 
 =head1 SYNOPSIS
 
@@ -258,13 +266,26 @@ Tells Dist::Zilla about our needs to have EU::MM larger than 6.42
 Generates the Makefile.PL, and runs it in a tmpdir, and then harvests the output and stores
 it in the dist selectively.
 
+=head1 DEPRECATED
+
+This module is now officially deprecated.
+
+It was never really recommended, or supported, and it always existed as a gap filler for people
+who were migrating from Module::Install and had yet to understand certain design elements of C<Dist::Zilla>
+made using Module::Install effectively redundant.
+
+In short, it was an excuse, a foot-gun for the person who needed holes in their feet.
+
+I will not actively prevent this module from doing anything it didn't use to do, but its use
+should be considered officially discouraged.
+
 =head1 AUTHOR
 
 Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2016 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
