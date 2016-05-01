@@ -1,8 +1,12 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ - Amended missing changelog entry in a previous release
 
 1.001001 2016-04-29T12:17:45Z 78daba4
+ - Marked distribution deprecated.
+ - Simplified runtime dependency graph.
+
  [Dependencies::Stats]
  - Dependencies changed since 1.001000, see misc/*.deps* for details
  - configure: +1 (recommends: ↑1)
