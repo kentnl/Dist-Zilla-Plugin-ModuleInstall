@@ -1,10 +1,11 @@
 Revision history for Dist-Zilla-Plugin-ModuleInstall
 
-1.001002 2017-03-07T08:00:02Z 3d6a266
+1.001002 2017-03-07T08:09:04Z 3a4ccbf
  - Amended missing changelog entry in a previous release
 
  [Bugfix]
  - Avoid test failures on -Ddefault_inc_excludes_dot
+ - Generated Makefile.PL now has a `use lib` stanza to avoid -Ddefault_inc_excludes_dot issues
 
  [Dependencies::Stats]
  - Dependencies changed since 1.001001, see misc/*.deps* for details
