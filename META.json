@@ -142,7 +142,7 @@
    "provides" : {
       "Dist::Zilla::Plugin::ModuleInstall" : {
          "file" : "lib/Dist/Zilla/Plugin/ModuleInstall.pm",
-         "version" : "1.001002"
+         "version" : "1.001003"
       }
    },
    "release_status" : "stable",
@@ -157,7 +157,7 @@
          "web" : "https://github.com/kentnl/Dist-Zilla-Plugin-ModuleInstall"
       }
    },
-   "version" : "1.001002",
+   "version" : "1.001003",
    "x_BuiltWith" : {
       "external_file" : "misc/built_with.json"
    },
@@ -686,7 +686,7 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "1.001002-source",
+                  "tag" : "1.001003-source",
                   "tag_format" : "%v-source",
                   "tag_message" : "v%v"
                },
@@ -780,7 +780,7 @@
                   "branch" : "releases",
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "1.001002",
+                  "tag" : "1.001003",
                   "tag_format" : "%v",
                   "tag_message" : "v%v"
                },
