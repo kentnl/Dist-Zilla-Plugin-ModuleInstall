@@ -5,6 +5,7 @@
 
  [Bugfix]
  - Avoid test failures on -Ddefault_inc_excludes_dot
+ - Generated Makefile.PL now has a `use lib` stanza to avoid -Ddefault_inc_excludes_dot issues
 
  [Dependencies::Stats]
  - Dependencies changed since 1.001001, see misc/*.deps* for details
