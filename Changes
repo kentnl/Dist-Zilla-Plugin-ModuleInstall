@@ -1,7 +1,15 @@
-﻿Revision history for Dist-Zilla-Plugin-ModuleInstall
+Revision history for Dist-Zilla-Plugin-ModuleInstall
 
-1.001002 2016-05-01T00:36:58Z 9ddad23
+1.001002 2017-03-07T08:00:02Z 3d6a266
  - Amended missing changelog entry in a previous release
+
+ [Bugfix]
+ - Avoid test failures on -Ddefault_inc_excludes_dot
+
+ [Dependencies::Stats]
+ - Dependencies changed since 1.001001, see misc/*.deps* for details
+ - develop: +1 ↑1 (suggests: ↑2)
+ - test: ↓1
 
 1.001001 2016-04-29T12:17:45Z 78daba4
  - Marked distribution deprecated.
